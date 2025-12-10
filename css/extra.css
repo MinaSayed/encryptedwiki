@@ -1,4 +1,4 @@
-/* هذا الكود يلغي الحد الأقصى لعرض المحتوى الرئيسي في MkDocs */
+/* هذا الكود يجبر المتصفح على إلغاء الحد الأقصى للعرض (Full-Width) */
 .md-grid {
-  max-width: none;
+  max-width: none !important;
 }
