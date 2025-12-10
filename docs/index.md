@@ -4,7 +4,7 @@ sudo apt update
 
 # مثال كود جافاسكريبت فارغ وكبير
 
-```javascript
+```javascript title="JavaScript"
 // === ملف جافاسكريبت كبير لا يفعل أي شيء ===
 
 // متغيرات فارغة
