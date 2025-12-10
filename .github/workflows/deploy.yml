@@ -1,0 +1,49 @@
+name: Deploy MkDocs Site
+
+on:
+  # هذا يعني أن سير العمل سيعمل في كل مرة يتم فيها الدفع (Push) إلى الفرع الرئيسي
+  push:
+    branches:
+      - main 
+  # يسمح بتشغيل العملية يدوياً من واجهة GitHub Actions
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    # سيتم تشغيل العملية على أحدث إصدار من Ubuntu
+    runs-on: ubuntu-latest
+    
+    # تحديد الصلاحيات اللازمة للبناء والنشر
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          
+      - name: إعداد بيئة Python 🐍
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+          
+      - name: تثبيت MkDocs Material 🧱
+        run: pip install mkdocs-material
+
+      - name: تهيئة GitHub Pages ⚙️
+        uses: actions/configure-pages@v4
+
+      - name: بناء المشروع (MkDocs build)
+        # MkDocs يقوم ببناء الملفات الثابتة داخل مجلد اسمه "site" افتراضياً
+        run: mkdocs build
+        
+      - name: رفع الملفات المبنية (Artifact)
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: './site' 
+
+      - name: نشر الموقع على GitHub Pages 🌐
+        id: deployment
+        uses: actions/deploy-pages@v4
