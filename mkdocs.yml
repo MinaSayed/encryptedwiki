@@ -5,7 +5,7 @@ theme:
     scheme: slate
     primary: black
   features:
-    
+    - content.code.copy
 nav:
   - Home: index.md
 
