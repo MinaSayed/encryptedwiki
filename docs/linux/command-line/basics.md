@@ -85,8 +85,40 @@ Three sets: `user | group | others`
 
 **Debian/Ubuntu (APT)**
 
-```bash
-sudo apt update          # Update repository info
-sudo apt upgrade         # Upgrade installed packages
-sudo apt install pkg     # Install a package
-sudo apt remove pkg      # Remove a package
+```javascript
+// This is a JavaScript example
+
+// Function to add two numbers
+function add(a, b) {
+    return a + b;
+}
+
+// Function to greet a user
+function greet(name) {
+    console.log(`Hello, ${name}!`);
+}
+
+// Using the functions
+const sum = add(5, 7);
+console.log("Sum:", sum);
+
+greet("Alice");
+```javascript
+// This is a JavaScript example
+
+// Function to add two numbers
+function add(a, b) {
+    return a + b;
+}
+
+// Function to greet a user
+function greet(name) {
+    console.log(`Hello, ${name}!`);
+}
+
+// Using the functions
+const sum = add(5, 7);
+console.log("Sum:", sum);
+
+greet("Alice");
+
