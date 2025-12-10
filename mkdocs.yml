@@ -3,6 +3,8 @@ theme:
   name: material
   palette:
     scheme: slate
+    primary: indigo
+    
 nav:
   - Home: index.md
 
