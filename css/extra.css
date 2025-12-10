@@ -1,4 +1,13 @@
-/* هذا الكود يجبر المتصفح على إلغاء الحد الأقصى للعرض (Full-Width) */
+/* الكود الشامل لتجاوز جميع قيود العرض في MkDocs Material */
+.md-container,
+.md-main__inner,
+.md-content,
 .md-grid {
   max-width: none !important;
+}
+
+/* تعديل عرض الشريط العلوي (الهيدر) والشريط السفلي (الفوتر) */
+.md-header,
+.md-footer {
+  width: 100% !important;
 }
