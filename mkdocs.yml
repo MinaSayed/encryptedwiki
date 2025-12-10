@@ -1,13 +1,16 @@
 site_name: Encrypted Wiki
+
 theme:
   name: material
   palette:
     scheme: slate
     primary: black
   features:
-    - content.code.copy
+    - content.code.copy # ميزة نسخ الكود
 
+# 🛠️ التصحيح هنا: أضفنا 'attr_list' لتشغيل خاصية اسم اللغة (Title)
 markdown_extensions:
+  - attr_list
   - pymdownx.superfences
 
 nav:
