@@ -1,6 +1,8 @@
 site_name: Encrypted Wiki
 theme:
   name: material
+  palette:
+    scheme: slate
 nav:
   - Home: index.md
 
