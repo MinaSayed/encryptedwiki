@@ -6,5 +6,9 @@ theme:
     primary: black
   features:
     - content.code.copy
+
+markdown_extensions:
+  - pymdownx.superfences
+
 nav:
   - Home: index.md
