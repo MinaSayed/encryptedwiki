@@ -1,17 +1,5 @@
-/* الكود الشامل لتجاوز جميع قيود العرض في MkDocs Material */
-.md-container,
-.md-main,
-.md-main__inner,
-.md-content,
 .md-grid {
-  max-width: none !important;
-  margin-left: 0 !important;
-  margin-right: 0 !important;
-}
-
-/* التأكد من أن الشريط العلوي (الهيدر) والشريط السفلي (الفوتر) أيضاً يأخذان العرض الكامل */
-.md-header,
-.md-footer {
-  width: 100% !important;
-  max-width: none !important;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 70rem;
 }
