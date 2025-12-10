@@ -7,9 +7,9 @@ nav:
   # --- Start of the Nested Linux Section ---
   - Linux Documentation:  # Level 1: The main section label
     - Command Line:       # Level 2: Sub-menu label
-      - Basics: linux/command-line/basics.md     # Level 3: The actual page link
+      - Basics: basics.md     # Level 3: The actual page link
     - Process Management: # Another Level 2 Sub-menu
-      - Overview: linux/processes/overview.md
+      - Overview: overview.md
     - File Systems:
-      - Structure: linux/filesystem/structure.md
+      - Structure: structure.md
   # --- End of the Nested Linux Section ---
