@@ -5,7 +5,6 @@ theme:
     scheme: slate
     primary: black
   features:
-    - navigation.tabs # هذه الميزة تجعل الموقع أوسع
     
 nav:
   - Home: index.md
