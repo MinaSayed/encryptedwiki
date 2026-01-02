@@ -7,14 +7,14 @@ theme:
   palette:
     # Dark mode settings
     - scheme: slate
-      primary: teal
+      primary: indigo
       accent: cyan
       toggle:
         icon: material/brightness-4
         name: Switch to light mode
     # Light mode settings
     - scheme: default
-      primary: teal
+      primary: indigo
       accent: cyan
       toggle:
         icon: material/brightness-7
