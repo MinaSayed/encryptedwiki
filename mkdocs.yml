@@ -5,14 +5,14 @@ use_directory_urls: true
 theme:
   name: material
   palette:
-    # Dark mode settings
+    # إعدادات الوضع المظلم (Dark mode)
     - scheme: slate
       primary: indigo
       accent: light blue
       toggle:
         icon: material/brightness-4
         name: Switch to light mode
-    # Light mode settings
+    # إعدادات الوضع الفاتح (Light mode)
     - scheme: default
       primary: indigo
       accent: light blue
@@ -20,11 +20,11 @@ theme:
         icon: material/brightness-7
         name: Switch to dark mode
   features:
-    - navigation.sections
-    - navigation.expand
-    - search.highlight
-    - content.code.copy
-    - navigation.top
+    - navigation.sections    # تقسيم القائمة الجانبية لأجزاء واضحة
+    - navigation.expand      # فتح الأقسام تلقائياً
+    - search.highlight       # تظليل الكلمات عند البحث عنها
+    - content.code.copy      # إضافة زر نسخ الكود
+    - navigation.top         # إضافة زر العودة للأعلى
 
 plugins:
   - search
@@ -40,3 +40,6 @@ markdown_extensions:
   - toc:
       baselevel: 1
       toc_depth: 3
+      
+extra_css:
+  - stylesheets/extra.css

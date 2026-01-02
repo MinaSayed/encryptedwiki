@@ -1,0 +1,16 @@
+/* تلوين عنوان القسم في القائمة الجانبية */
+.md-nav__item--nested > .md-nav__link {
+    background-color: #2e3b4e; /* لون الخلفية - يمكنك تغييره */
+    color: #ffffff;             /* لون الخط */
+    padding: 5px 10px;          /* مسافة داخلية */
+    border-radius: 4px;         /* زوايا منحنية */
+    margin-bottom: 5px;         /* مسافة أسفل العنوان */
+    font-weight: bold;          /* خط عريض */
+}
+
+/* اختيار لون مختلف عند مرور الماوس (اختياري) */
+.md-nav__item--nested > .md-nav__link:hover {
+    background-color: #3f51b5;
+}
+
+
