@@ -34,7 +34,7 @@
 @media screen and (min-width: 76.25em) {
     /* جعل الحاوية الكبيرة تأخذ مساحة 98% من الشاشة */
     .md-grid {
-        max-width: 98% !important;
+        max-width: 90% !important;
         margin-left: 1% !important;
         margin-right: 1% !important;
     }
