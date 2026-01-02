@@ -1,17 +1,24 @@
-/* تلوين عنوان القسم في القائمة الجانبية */
-.md-nav__item--nested  > .md-nav__link{
-    background-color: Indigo; /* لون الخلفية - يمكنك تغييره */
-    color: #ffffff;             /* لون الخط */
-    padding: 5px 10px;          /* مسافة داخلية */
-    border-radius: 4px;         /* زوايا منحنية */
-    margin-bottom: 5px;         /* مسافة أسفل العنوان */
-    font-weight: bold;          /* خط عريض */
+/* تلوين عنوان المجلد الرئيسي فقط في القائمة الجانبية */
+.md-nav__item--nested > label.md-nav__link, 
+.md-nav__item--nested > a.md-nav__link {
+    background-color: #3f51b5 !important; /* لون Indigo نفس الشريط العلوي */
+    color: #ffffff !important;             /* لون الخط أبيض */
+    padding: 8px 12px !important;          /* مساحة داخلية */
+    border-radius: 4px !important;         /* زوايا منحنية */
+    margin-bottom: 5px !important;         /* مسافة بسيطة قبل الدروس */
+    font-weight: bold !important;          /* خط عريض */
 }
 
-/* اختيار لون مختلف عند مرور الماوس (اختياري) */
-.md-nav__item--nested > .md-nav__link:hover {
-    background-color: #3f51b5;
-    color: #ffffff;  
+/* التأكد من أن الدروس بالداخل (المحتويات) تظل بشكلها العادي */
+.md-nav__item--nested .md-nav__list .md-nav__link {
+    background-color: transparent !important; /* خلفية شفافة */
+    color: var(--md-default-fg-color) !important; /* لون الخط الافتراضي */
+    padding: 4px 12px !important;
+}
+
+/* تلوين السهم الجانبي باللون الأبيض ليظهر على الخلفية الزرقاء */
+.md-nav__item--nested > label.md-nav__link::after {
+    background-color: #ffffff !important;
 }
 
 
