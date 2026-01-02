@@ -11,6 +11,21 @@
 /* اختيار لون مختلف عند مرور الماوس (اختياري) */
 .md-nav__item--nested > .md-nav__link:hover {
     background-color: #3f51b5;
+    color: #ffffff;  
 }
 
 
+/* توسيع عرض منطقة المحتوى والقوائم الجانبية */
+:root {
+  --md-typeset-table-fallback-color: transparent;
+}
+
+@media screen and (min-width: 76.25em) {
+  .md-grid {
+    max-width: 100%; /* سيجعل الموقع يأخذ عرض الشاشة بالكامل */
+    margin-left: 5%;  /* مسافة بسيطة من اليسار */
+    margin-right: 5%; /* مسافة بسيطة من اليمين */
+  }
+}
+
+/* إذا كنت تريد عرضاً كبيراً جداً ولكن ليس كاملاً، استبدل 100% بـ 90rem أو 120rem */
