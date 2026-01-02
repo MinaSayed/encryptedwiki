@@ -15,6 +15,7 @@
 .md-nav__item--nested > a.md-nav__link:hover {
     background-color: #3f51b5 !important; /* أزرق أغمق عند الوقوف بالماوس */
     cursor: pointer;
+    color : #ffffff;
 }
 
 /* 3. ضمان بقاء الدروس والملفات الداخلية بخلفية شفافة */
