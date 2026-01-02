@@ -36,8 +36,8 @@
     /* جعل الحاوية الكبيرة تأخذ مساحة 98% من الشاشة */
     .md-grid {
         max-width: 90% !important;
-        margin-left: 1% !important;
-        margin-right: 1% !important;
+        margin-left: 5% !important;
+        margin-right: 5% !important;
     }
 
     /* إلغاء الحد الأقصى لعرض منطقة الكتابة لتمتد بالكامل */
