@@ -1,4 +1,6 @@
 site_name: Encrypted Wiki
+site_url: https://minasayed.github.io/encryptedwiki/
+use_directory_urls: true
 
 theme:
   name: material
@@ -27,7 +29,6 @@ theme:
 plugins:
   - search
   - awesome-pages
-     
 
 markdown_extensions:
   - pymdownx.highlight:
