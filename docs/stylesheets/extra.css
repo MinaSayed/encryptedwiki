@@ -13,7 +13,7 @@
 /* 2. تصحيح تأثير مرور الماوس (Hover) على المجلدات */
 .md-nav__item--nested > label.md-nav__link:hover,
 .md-nav__item--nested > a.md-nav__link:hover {
-    background-color: #283593 !important; /* أزرق أغمق عند الوقوف بالماوس */
+    background-color: #3f51b5 !important; /* أزرق أغمق عند الوقوف بالماوس */
     cursor: pointer;
 }
 
