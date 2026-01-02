@@ -1,1 +1,1 @@
-# encryptedwiki
+# Encrypted Wiki
