@@ -1,43 +1,51 @@
-/* تلوين عنوان المجلد الرئيسي فقط في القائمة الجانبية */
+/* 1. تلوين المجلدات الرئيسية فقط (مثل offensive Programming) */
+/* يستهدف العنوان المباشر للمجلد ولا يؤثر على الدروس بالداخل */
 .md-nav__item--nested > label.md-nav__link, 
 .md-nav__item--nested > a.md-nav__link {
-    background-color: #3f51b5 !important; /* لون Indigo نفس الشريط العلوي */
-    color: #ffffff !important;             /* لون الخط أبيض */
-    padding: 8px 12px !important;          /* مساحة داخلية */
-    border-radius: 4px !important;         /* زوايا منحنية */
-    margin-bottom: 5px !important;         /* مسافة بسيطة قبل الدروس */
-    font-weight: bold !important;          /* خط عريض */
+    background-color: #3f51b5 !important; /* لون Indigo */
+    color: #ffffff !important;             /* خط أبيض */
+    padding: 8px 12px !important;
+    border-radius: 4px !important;
+    margin-bottom: 5px !important;
+    font-weight: bold !important;
 }
 
-/* التأكد من أن الدروس بالداخل (المحتويات) تظل بشكلها العادي */
+/* 2. تصحيح تأثير مرور الماوس (Hover) على المجلدات */
+.md-nav__item--nested > label.md-nav__link:hover,
+.md-nav__item--nested > a.md-nav__link:hover {
+    background-color: #283593 !important; /* أزرق أغمق عند الوقوف بالماوس */
+    cursor: pointer;
+}
+
+/* 3. ضمان بقاء الدروس والملفات الداخلية بخلفية شفافة */
 .md-nav__item--nested .md-nav__list .md-nav__link {
-    background-color: transparent !important; /* خلفية شفافة */
-    color: var(--md-default-fg-color) !important; /* لون الخط الافتراضي */
-    padding: 4px 12px !important;
+    background-color: transparent !important;
+    color: var(--md-default-fg-color) !important;
+    padding: 5px 12px !important;
+    font-weight: normal !important;
 }
 
-/* تلوين السهم الجانبي باللون الأبيض ليظهر على الخلفية الزرقاء */
+/* 4. تلوين سهم القائمة باللون الأبيض ليظهر بوضوح */
 .md-nav__item--nested > label.md-nav__link::after {
     background-color: #ffffff !important;
 }
 
-.md-nav__item--nested > label.md-nav__link::hover {
-    background-color: #3f51b5 !important;
-    color: #ffffff;
+/* 5. توسيع منطقة المحتوى (Content) والشبكة (Grid) */
+@media screen and (min-width: 76.25em) {
+    /* جعل الحاوية الكبيرة تأخذ مساحة 98% من الشاشة */
+    .md-grid {
+        max-width: 98% !important;
+        margin-left: 1% !important;
+        margin-right: 1% !important;
+    }
+
+    /* إلغاء الحد الأقصى لعرض منطقة الكتابة لتمتد بالكامل */
+    .md-content {
+        max-width: none !important;
+    }
 }
 
-/* توسيع عرض منطقة المحتوى والقوائم الجانبية */
+/* 6. إعدادات إضافية للجداول والخطوط */
 :root {
   --md-typeset-table-fallback-color: transparent;
-}
-
-@media screen and (min-width: 76.25em) {
-  .md-grid {
-    max-width: 90%; /* سيجعل الموقع يأخذ عرض الشاشة بالكامل */
-    margin-left: 1%;  /* مسافة بسيطة من اليسار */
-    margin-right: 1%; /* مسافة بسيطة من اليمين */
-  }
-}
-
-/* إذا كنت تريد عرضاً كبيراً جداً ولكن ليس كاملاً، استبدل 100% بـ 90rem أو 120rem */
 }
