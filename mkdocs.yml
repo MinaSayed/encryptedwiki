@@ -8,14 +8,14 @@ theme:
     # Dark mode settings
     - scheme: slate
       primary: indigo
-      accent: cyan
+      accent: light blue
       toggle:
         icon: material/brightness-4
         name: Switch to light mode
     # Light mode settings
     - scheme: default
       primary: indigo
-      accent: cyan
+      accent: light blue
       toggle:
         icon: material/brightness-7
         name: Switch to dark mode
