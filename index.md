@@ -14,7 +14,6 @@ You can navigate through the different sections using the sidebar or start with 
 
 ### 🐍 Python for Cybersecurity
 Learn how to leverage Python for system-level interactions and automation:
-* [Introduction to OS Module](Python for Cybersecurity/System interaction/Os module/Introduction to os module.md): Mastering file system manipulation.
 
 ### 💻 Offensive Programming
 A deep dive into writing code from an attacker's perspective to better understand security flaws.
