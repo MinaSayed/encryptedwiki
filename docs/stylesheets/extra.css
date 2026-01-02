@@ -35,8 +35,8 @@
 
 
 .md-footer {
-    background-color: #3f51b5;
-    color: #3f51b5;
+    background-color: Indigo;
+    color: Indigo;
 }
 
 
@@ -46,7 +46,7 @@ html .md-footer-meta.md-typeset a {
 
 
 .md-copyright {
-    color: #3f51b5;
+    color: Indigo;
     font-size: .64rem;
     margin: auto .6rem;
     padding: .4rem 0;
@@ -55,7 +55,7 @@ html .md-footer-meta.md-typeset a {
 
 
 .md-footer-meta {
-    background-color: #3f51b5;
+    background-color: Indigo;
 }
 
 
