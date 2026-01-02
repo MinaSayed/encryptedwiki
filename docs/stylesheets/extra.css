@@ -23,8 +23,8 @@
 @media screen and (min-width: 76.25em) {
   .md-grid {
     max-width: 90%; /* سيجعل الموقع يأخذ عرض الشاشة بالكامل */
-    margin-left: 5%;  /* مسافة بسيطة من اليسار */
-    margin-right: 5%; /* مسافة بسيطة من اليمين */
+    margin-left: 2%;  /* مسافة بسيطة من اليسار */
+    margin-right: 2%; /* مسافة بسيطة من اليمين */
   }
 }
 
