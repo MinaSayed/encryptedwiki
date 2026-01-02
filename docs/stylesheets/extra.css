@@ -21,6 +21,10 @@
     background-color: #ffffff !important;
 }
 
+.md-nav__item--nested > label.md-nav__link::after {
+    background-color: #3f51b5 !important;
+    color: #ffffff;
+}
 
 /* توسيع عرض منطقة المحتوى والقوائم الجانبية */
 :root {
