@@ -1,5 +1,5 @@
 /* تلوين عنوان القسم في القائمة الجانبية */
-.md-nav__item--nested > .md-nav__link {
+.md-nav__item--nested{
     background-color: #2e3b4e; /* لون الخلفية - يمكنك تغييره */
     color: #ffffff;             /* لون الخط */
     padding: 5px 10px;          /* مسافة داخلية */
