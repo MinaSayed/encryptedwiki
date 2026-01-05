@@ -1,24 +1,27 @@
-/* 1. تلوين المجلدات الرئيسية فقط (مثل offensive Programming) */
+/* =========================================================
+   1. تلوين المجلدات الرئيسية فقط في الـ Navigation
+   ========================================================= */
+
 /* يستهدف العنوان المباشر للمجلد ولا يؤثر على الدروس بالداخل */
-.md-nav__item--nested > label.md-nav__link, 
+.md-nav__item--nested > label.md-nav__link,
 .md-nav__item--nested > a.md-nav__link {
-    background-color: #3f51b5 !important; /* لون Indigo */
-    color: #ffffff !important;             /* خط أبيض */
+    background-color: #3f51b5 !important; /* Indigo */
+    color: #ffffff !important;
     padding: 8px 12px !important;
     border-radius: 4px !important;
     margin-bottom: 5px !important;
     font-weight: bold !important;
 }
 
-/* 2. تصحيح تأثير مرور الماوس (Hover) على المجلدات */
+/* Hover على المجلدات */
 .md-nav__item--nested > label.md-nav__link:hover,
 .md-nav__item--nested > a.md-nav__link:hover {
-    background-color: #3f51b5 !important; /* أزرق أغمق عند الوقوف بالماوس */
+    background-color: #3f51b5 !important;
+    color: #ffffff !important;
     cursor: pointer;
-    color : #ffffff;
 }
 
-/* 3. ضمان بقاء الدروس والملفات الداخلية بخلفية شفافة */
+/* الدروس والملفات الداخلية بدون خلفية */
 .md-nav__item--nested .md-nav__list .md-nav__link {
     background-color: transparent !important;
     color: var(--md-default-fg-color) !important;
@@ -26,19 +29,63 @@
     font-weight: normal !important;
 }
 
-/* 4. تلوين سهم القائمة باللون الأبيض ليظهر بوضوح */
+/* سهم القائمة باللون الأبيض */
 .md-nav__item--nested > label.md-nav__link::after {
     background-color: #ffffff !important;
 }
 
 
+/* =========================================================
+   2. عرض المحتوى (Content width)
+   ========================================================= */
+
 .md-grid {
     margin-left: auto;
     margin-right: auto;
-    max-width: 68rem;
+    max-width: 66rem;
 }
 
 
+/* =========================================================
+   3. خلفية الموقع (#212121 تقريبًا)
+   ========================================================= */
+
+:root {
+    --md-default-bg-color: #212121;
+}
 
 
+/* =========================================================
+   4. تنسيق العناوين h2 → h6
+   ========================================================= */
+
+.md-typeset h2 {
+    color: #2196f3;        /* أزرق */
+    font-weight: 700;
+    font-size: 1.6rem;
+}
+
+.md-typeset h3 {
+    color: #ef5350;        /* أحمر فاتح */
+    font-weight: 700;
+    font-size: 1.4rem;
+}
+
+.md-typeset h4 {
+    color: #4caf50;        /* أخضر */
+    font-weight: 700;
+    font-size: 1.25rem;
+}
+
+.md-typeset h5 {
+    color: #ffeb3b;        /* أصفر */
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+.md-typeset h6 {
+    color: #f48fb1;        /* بمبا */
+    font-weight: 700;
+    font-size: 1rem;
+}
 
