@@ -61,31 +61,31 @@
 
 .md-typeset h2 {
     color: #2196f3;        /* أزرق */
-    font-weight: 700;
+    font-weight: 600;
     font-size: 1.6rem;
 }
 
 .md-typeset h3 {
     color: #ef5350;        /* أحمر فاتح */
-    font-weight: 600;
+    font-weight: 500;
     font-size: 1.4rem;
 }
 
 .md-typeset h4 {
     color: #4caf50;        /* أخضر */
-    font-weight: 500;
+    font-weight: 450;
     font-size: 1.25rem;
 }
 
 .md-typeset h5 {
     color: #ffeb3b;        /* أصفر */
-    font-weight: 450;
+    font-weight: 400;
     font-size: 1.1rem;
 }
 
 .md-typeset h6 {
     color: #f48fb1;        /* بمبا */
-    font-weight: 430;
+    font-weight: 390;
     font-size: 1rem;
 }
 
