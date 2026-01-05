@@ -119,6 +119,12 @@
 }
 
 
+@media screen and (min-width: 76.25em) {
+    [dir=ltr] .md-nav--primary .md-nav__list {
+        padding-left: 0.2rem;
+    }
+}
+
 
 
 
