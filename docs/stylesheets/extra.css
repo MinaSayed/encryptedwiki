@@ -89,3 +89,44 @@
     font-size: 1rem;
 }
 
+
+
+
+
+/* =========================================================
+   5. توسيع عرض الـ Sidebar ومنع كسر العناوين
+   ========================================================= */
+
+/* توسيع عرض القائمة الجانبية */
+.md-sidebar {
+    width: 22rem !important;      /* الافتراضي ~15rem */
+}
+
+.md-sidebar--primary {
+    width: 22rem !important;
+}
+
+/* توسيع المساحة المحجوزة للمحتوى بجانبها */
+@media screen and (min-width: 76.25em) {
+    .md-main {
+        margin-left: 22rem;
+    }
+}
+
+/* منع كسر النص في عناوين الصفحات والملفات */
+.md-nav__link {
+    white-space: nowrap;
+}
+
+/* لو الاسم طويل جدًا، نخليه نقط (...) بدل سطرين */
+.md-nav__link span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+
+
+
+
+
