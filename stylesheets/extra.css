@@ -1,0 +1,131 @@
+/* =========================================================
+   1. تلوين المجلدات الرئيسية فقط في الـ Navigation
+   ========================================================= */
+
+/* يستهدف العنوان المباشر للمجلد ولا يؤثر على الدروس بالداخل */
+.md-nav__item--nested > label.md-nav__link,
+.md-nav__item--nested > a.md-nav__link {
+    background-color: #3f51b5 !important; /* Indigo */
+    color: #ffffff !important;
+    padding: 8px 12px !important;
+    border-radius: 4px !important;
+    margin-bottom: 5px !important;
+    font-weight: bold !important;
+}
+
+/* Hover على المجلدات */
+.md-nav__item--nested > label.md-nav__link:hover,
+.md-nav__item--nested > a.md-nav__link:hover {
+    background-color: #3f51b5 !important;
+    color: #ffffff !important;
+    cursor: pointer;
+}
+
+/* الدروس والملفات الداخلية بدون خلفية */
+.md-nav__item--nested .md-nav__list .md-nav__link {
+    background-color: transparent !important;
+    color: var(--md-default-fg-color) !important;
+    padding: 5px 12px !important;
+    font-weight: normal !important;
+}
+
+/* سهم القائمة باللون الأبيض */
+.md-nav__item--nested > label.md-nav__link::after {
+    background-color: #ffffff !important;
+}
+
+
+/* =========================================================
+   2. عرض المحتوى (Content width)
+   ========================================================= */
+
+.md-grid {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 66rem;
+}
+
+
+/* =========================================================
+   3. خلفية الموقع (#212121 تقريبًا)
+   ========================================================= */
+
+:root {
+    --md-default-bg-color: #212121;
+}
+
+
+/* =========================================================
+   4. تنسيق العناوين h2 → h6
+   ========================================================= */
+
+.md-typeset h2 {
+    color: #2196f3;        /* أزرق */
+    font-weight: 600;
+    font-size: 1.3rem;
+}
+
+.md-typeset h3 {
+    color: #ef5350;        /* أحمر فاتح */
+    font-weight: 500;
+    font-size: 1.2rem;
+}
+
+.md-typeset h4 {
+    color: #4caf50;        /* أخضر */
+    font-weight: 450;
+    font-size: 1.2rem;
+}
+
+.md-typeset h5 {
+    color: #ffeb3b;        /* أصفر */
+    font-weight: 400;
+    font-size: 1.1rem;
+}
+
+.md-typeset h6 {
+    color: #f48fb1;        /* بمبا */
+    font-weight: 390;
+    font-size: 1rem;
+}
+
+
+
+
+/* =========================================================
+   5. توسيع الـ Sidebar بالطريقة الصحيحة (Material-safe)
+   ========================================================= */
+
+/* توسيع عرض السايدبار باستخدام متغير الثيم */
+:root {
+    --md-sidebar-width: 22rem;           /* الافتراضي ~15rem */
+    --md-sidebar-width--secondary: 22rem;
+}
+
+/* =========================================================
+   6. منع كسر أسماء الصفحات بدون تدمير التخطيط
+   ========================================================= */
+
+/* السماح بسطر واحد فقط */
+.md-nav__link {
+    white-space: nowrap;
+}
+
+/* لو الاسم أطول من العرض → ... */
+.md-nav__link span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+}
+
+
+@media screen and (min-width: 76.25em) {
+    [dir=ltr] .md-nav--primary .md-nav__list {
+        padding-left: 0.2rem;
+    }
+}
+
+
+
+
+
