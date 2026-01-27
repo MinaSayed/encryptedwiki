@@ -1,0 +1,5040 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://minasayed.github.io/encryptedwiki/offensive_Programming/Python_for_Cybersecurity/Python_Fundamentals/User_Input_Validation/01.Type_Validation/Numeric_Types_Validation/01.%20Integer%20Validation/">
+      
+      
+        <link rel="prev" href="../../Collection_Types_Validation/04.%20Dictionary%20Validation/">
+      
+      
+        <link rel="next" href="../02.%20Float%20Validation/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>Integer Validation - Encrypted Wiki</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../../../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="light-blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#what-is-integer-validation-and-why-do-we-need-it" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../../../../.." title="Encrypted Wiki" class="md-header__button md-logo" aria-label="Encrypted Wiki" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Encrypted Wiki
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Integer Validation
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="light-blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="light-blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../../../../.." title="Encrypted Wiki" class="md-nav__button md-logo" aria-label="Encrypted Wiki" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Encrypted Wiki
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    offensive Programming
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    offensive Programming
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    C for Cybersecurity
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    C for Cybersecurity
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_1_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1_1" id="__nav_2_1_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    C programming fundamentals
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_1_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    C programming fundamentals
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_1_1_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1_1_1" id="__nav_2_1_1_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The structure of C Programming
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_1_1_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1_1_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    The structure of C Programming
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../C_for_Cybersecurity/C_programming_fundamentals/The_structure_of_C_Programming/01.Introduction%20to%20structure%20of%20C%20Programming/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction to structure of C program
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_1_1_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1_1_2" id="__nav_2_1_1_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Variables in C programming
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_1_1_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1_1_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Variables in C programming
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../C_for_Cybersecurity/C_programming_fundamentals/Variables_in_C_programming/01.Introuction%20to%20Varaiables%20in%20C/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introuction to variables in C programming
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Python for Cybersecurity
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Python for Cybersecurity
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_1" id="__nav_2_2_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Building Interactive CLIs with cmd Module
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Building Interactive CLIs with cmd Module
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../Building_Interactive_CLIs_with_cmd_Module/01.Introduction%20to%20cmd%20module/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction to cmd module
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_2" id="__nav_2_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Python Fundamentals
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Python Fundamentals
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_2_1" id="__nav_2_2_2_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Built in functions in Python
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_2_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Built in functions in Python
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Built-in_functions_in_Python/01.The%20print%28%29function/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The print () function in python
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_2_2" id="__nav_2_2_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data structure in Python
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_2_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Data structure in Python
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2_2_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_2_2_1" id="__nav_2_2_2_2_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lists in Python
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_2_2_2_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_2_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Lists in Python
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Data_structure_in_Python/Lists_in_Python/01.Introduction%20to%20lists/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction to lists in Python
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_2_3" id="__nav_2_2_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exception handling in Python
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_2_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Exception handling in Python
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Exception_handling_in_Python/01.Introduction%20to%20Exception%20Handling/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction to Exception Handling
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2_2_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_2_3_2" id="__nav_2_2_2_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Python Exception Hierarchy
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_2_2_2_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_2_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Python Exception Hierarchy
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2_2_3_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_2_3_2_1" id="__nav_2_2_2_3_2_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ImportError
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="6" aria-labelledby="__nav_2_2_2_3_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_2_3_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    ImportError
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Exception_handling_in_Python/Python%20Exception%20Hierarchy/ImportError/01.ModuleNotFoundError/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01.ModuleNotFoundError
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2_2_3_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_2_3_2_2" id="__nav_2_2_2_3_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LookupError
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="6" aria-labelledby="__nav_2_2_2_3_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_2_3_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    LookupError
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Exception_handling_in_Python/Python%20Exception%20Hierarchy/LookupError/02.KeyError/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02.KeyError
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2_2_3_2_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_2_3_2_2_2" id="__nav_2_2_2_3_2_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IndexError
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="7" aria-labelledby="__nav_2_2_2_3_2_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_2_3_2_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    IndexError
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Exception_handling_in_Python/Python%20Exception%20Hierarchy/LookupError/IndexError/01.Introduction%20to%20IndexError/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction to IndexError
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2_2_3_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_2_3_2_3" id="__nav_2_2_2_3_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    NameError
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="6" aria-labelledby="__nav_2_2_2_3_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_2_3_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    NameError
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Exception_handling_in_Python/Python%20Exception%20Hierarchy/NameError/01.UnboundLocalError/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01.UnboundLocalError
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2_2_3_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_2_3_2_4" id="__nav_2_2_2_3_2_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TypeError
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="6" aria-labelledby="__nav_2_2_2_3_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_2_3_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    TypeError
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Exception_handling_in_Python/Python%20Exception%20Hierarchy/TypeError/01.Introduction%20to%20TypeError/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01.Introduction to TypeError
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_2_4" id="__nav_2_2_2_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Strings in Python
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_2_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Strings in Python
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Strings_in_Python/01.Introduction%20to%20string%20data%20type/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01.Introduction to string data type
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2_2_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_2_4_2" id="__nav_2_2_2_4_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    String formating
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_2_2_2_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_2_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    String formating
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Strings_in_Python/String_formating/01.Formating%20strings%20using%20f-strings/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Formating string using f-strings method
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_2_5" id="__nav_2_2_2_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    User Input Validation
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_2_2_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_2_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    User Input Validation
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2_5_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_2_5_1" id="__nav_2_2_2_5_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01.Type Validation
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_2_2_2_5_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_2_2_5_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    01.Type Validation
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2_2_5_1_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_2_5_1_1" id="__nav_2_2_2_5_1_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Collection Types Validation
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="6" aria-labelledby="__nav_2_2_2_5_1_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_2_5_1_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Collection Types Validation
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Collection_Types_Validation/01.%20Tuple%20Validation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01. Tuple Validation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Collection_Types_Validation/02.%20List%20Validation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02. List Validation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Collection_Types_Validation/03.%20Set%20Validation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03. Set Validation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Collection_Types_Validation/04.%20Dictionary%20Validation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04. Dictionary Validation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2_5_1_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_2_5_1_2" id="__nav_2_2_2_5_1_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Numeric Types Validation
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="6" aria-labelledby="__nav_2_2_2_5_1_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_2_2_5_1_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Numeric Types Validation
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Integer Validation
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Integer Validation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-integer-validation-and-why-do-we-need-it" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is integer validation and why do we need it?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#types-of-integer-validation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Types of Integer validation:
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Types of Integer validation:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-validate-that-the-user-enters-a-positive-integer-whole-number" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Validate that the user enters a positive integer (whole number):
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-validate-that-the-user-enters-a-negative-integer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Validate that the user enters a negative integer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02.%20Float%20Validation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02. Float Validation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03.%20Complex%20Numbers%20Validation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03. Complex Numbers Validation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2_2_5_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_2_5_2" id="__nav_2_2_2_5_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02.Format and Structure Validation
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_2_2_2_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_2_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    02.Format and Structure Validation
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2_2_5_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_2_5_2_1" id="__nav_2_2_2_5_2_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01.Regular Expressions Validation
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="6" aria-labelledby="__nav_2_2_2_5_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_2_5_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    01.Regular Expressions Validation
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../02.Format_and_Structure_Validation/01.Regular_Expressions_Validation/01.%20Email%20Format%20Validation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01. Email Format Validation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../02.Format_and_Structure_Validation/01.Regular_Expressions_Validation/02.%20Phone%20Number%20Format%20Validation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02. Phone Number Format Validation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../02.Format_and_Structure_Validation/01.Regular_Expressions_Validation/03.%20UUID%20Validation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03. UUID Validation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../02.Format_and_Structure_Validation/01.Regular_Expressions_Validation/04.%20Alphanumeric%20Validation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04. Alphanumeric Validation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../02.Format_and_Structure_Validation/01.Regular_Expressions_Validation/05.%20Custom%20Pattern%20Validation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05. Custom Pattern Validation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2_2_5_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_2_5_2_2" id="__nav_2_2_2_5_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02.Dates and Times Validation
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="6" aria-labelledby="__nav_2_2_2_5_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_2_5_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    02.Dates and Times Validation
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../02.Format_and_Structure_Validation/02.Dates_and_Times_Validation/01.%20Dates%20and%20Times%20Validation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01. Dates and Times Validation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../02.Format_and_Structure_Validation/02.Dates_and_Times_Validation/02.%20ISO%20Format%20Validation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02. ISO Format Validation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2_2_5_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_2_5_2_3" id="__nav_2_2_2_5_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03.Data Structure Formats Validation
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="6" aria-labelledby="__nav_2_2_2_5_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_2_5_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    03.Data Structure Formats Validation
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../02.Format_and_Structure_Validation/03.Data_Structure_Formats_Validation/01.%20JSON%20Structure%20Validation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01. JSON Structure Validation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../02.Format_and_Structure_Validation/03.Data_Structure_Formats_Validation/02.%20XML%20Structure%20Validation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02. XML Structure Validation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../02.Format_and_Structure_Validation/03.Data_Structure_Formats_Validation/03.%20YAML%20Structure%20Validation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03. YAML Structure Validation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2_2_5_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_2_5_2_4" id="__nav_2_2_2_5_2_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04.Paths and Network Validation
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="6" aria-labelledby="__nav_2_2_2_5_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_2_5_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    04.Paths and Network Validation
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../02.Format_and_Structure_Validation/04.Paths_and_Network_Validation/01.%20File%20Paths%20Validation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01. File Paths Validation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../02.Format_and_Structure_Validation/04.Paths_and_Network_Validation/02.%20URLs%20Validation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02. URLs Validation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../02.Format_and_Structure_Validation/04.Paths_and_Network_Validation/03.%20IP%20Addresses%20Validation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03. IP Addresses Validation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2_2_5_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_2_5_3" id="__nav_2_2_2_5_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03.Range and Boundary Validation
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_2_2_2_5_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_2_5_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    03.Range and Boundary Validation
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2_2_5_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_2_5_3_1" id="__nav_2_2_2_5_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Length and Size Validation
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="6" aria-labelledby="__nav_2_2_2_5_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_2_5_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Length and Size Validation
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../03.Range_and_Boundary_Validation/Length_and_Size_Validation/01.%20String%20Length%20Validation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01. String Length Validation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../03.Range_and_Boundary_Validation/Length_and_Size_Validation/02.%20List%20Length%20Validation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02. List Length Validation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../03.Range_and_Boundary_Validation/Length_and_Size_Validation/03.%20File%20Size%20Validation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03. File Size Validation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2_2_5_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_2_5_3_2" id="__nav_2_2_2_5_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Temporal Ranges Validation
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="6" aria-labelledby="__nav_2_2_2_5_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_2_5_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Temporal Ranges Validation
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../03.Range_and_Boundary_Validation/Temporal_Ranges_Validation/01.%20Temporal%20Ranges%20Validation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01. Temporal Ranges Validation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../03.Range_and_Boundary_Validation/Temporal_Ranges_Validation/02.%20Resource%20Limits%20Validation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02. Resource Limits Validation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2_2_5_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_2_5_4" id="__nav_2_2_2_5_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04.Presence and Required Field Validation
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_2_2_2_5_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_2_5_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    04.Presence and Required Field Validation
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../04.Presence_and_Required_Field_Validation/01.%20Fixed%20Options%20Validation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01. Fixed Options Validation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../04.Presence_and_Required_Field_Validation/01.%20Non%20Empty%20Strings%20Validation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01. Non Empty Strings Validation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../04.Presence_and_Required_Field_Validation/02.%20Enum%20Checks%20Validation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02. Enum Checks Validation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../04.Presence_and_Required_Field_Validation/02.%20Non%20Null%20Values%20Validation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02. Non Null Values Validation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../04.Presence_and_Required_Field_Validation/03.%20Mandatory%20Fields%20Validation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03. Mandatory Fields Validation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../04.Presence_and_Required_Field_Validation/03.%20Whitelisted%20Characters%20Validation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03. Whitelisted Characters Validation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../04.Presence_and_Required_Field_Validation/04.%20Case%20Insensitive%20Allowlist%20Validation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04. Case Insensitive Allowlist Validation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../04.Presence_and_Required_Field_Validation/04.%20Conditional%20Presence%20Validation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04. Conditional Presence Validation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../04.Presence_and_Required_Field_Validation/05.%20Restricted%20Keywords%20Validation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05. Restricted Keywords Validation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../04.Presence_and_Required_Field_Validation/06.%20Predefined%20Pattern%20Validation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    06. Predefined Pattern Validation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2_2_5_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_2_5_5" id="__nav_2_2_2_5_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05.Allowlist and Membership Validation
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_2_2_2_5_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_2_5_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    05.Allowlist and Membership Validation
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../05.Allowlist_and_Membership_Validation/01.%20Fixed%20Options%20Validation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01. Fixed Options Validation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../05.Allowlist_and_Membership_Validation/02.%20Enum%20Checks%20Validation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02. Enum Checks Validation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../05.Allowlist_and_Membership_Validation/03.%20Whitelisted%20Characters%20Validation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03. Whitelisted Characters Validation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../05.Allowlist_and_Membership_Validation/04.%20Case%20Insensitive%20Allowlist%20Validation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04. Case Insensitive Allowlist Validation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../05.Allowlist_and_Membership_Validation/05.%20Restricted%20Keywords%20Validation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05. Restricted Keywords Validation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../05.Allowlist_and_Membership_Validation/06.%20Predefined%20Pattern%20Validation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    06. Predefined Pattern Validation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2_2_5_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_2_5_6" id="__nav_2_2_2_5_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    06.Security Validation
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_2_2_2_5_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_2_5_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    06.Security Validation
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2_2_5_6_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_2_5_6_1" id="__nav_2_2_2_5_6_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Input Injection and Threats
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="6" aria-labelledby="__nav_2_2_2_5_6_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_2_5_6_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Input Injection and Threats
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../06.Security_Validation/Input_Injection_and_Threats/01.%20Path%20Traversal%20Validation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01. Path Traversal Validation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../06.Security_Validation/Input_Injection_and_Threats/02.%20Command%20Injection%20Validation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02. Command Injection Validation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../06.Security_Validation/Input_Injection_and_Threats/03.%20SQL%20Template%20Injection/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03. SQL Template Injection
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../06.Security_Validation/Input_Injection_and_Threats/04.%20XSS%20HTML%20Injection/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04. XSS HTML Injection
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../06.Security_Validation/Input_Injection_and_Threats/05.%20CSRF%20Validation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05. CSRF Validation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../06.Security_Validation/Input_Injection_and_Threats/06.%20Malicious%20Payload%20Detection/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    06. Malicious Payload Detection
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2_2_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_2_6" id="__nav_2_2_2_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Variables in Python
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_2_2_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_2_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Variables in Python
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Variables_in_Python/01.Introduction%20to%20Variables/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction to Variables in Python
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_3" id="__nav_2_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    System interaction
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    System interaction
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_3_1" id="__nav_2_2_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Argparse module
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_2_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Argparse module
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../System_interaction/Argparse_module/01.Introduction%20to%20argparse%20module/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction to argparse module
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_3_2" id="__nav_2_2_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Os module
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_2_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Os module
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../System_interaction/os_module/01.Introduction%20to%20os%20module/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction to os module
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../System_interaction/os_module/03.Directory%20Management/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Folders Management
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../System_interaction/os_module/03.Identifiying%20System%20Information/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Identifying System Information
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../System_interaction/os_module/04.Files%20Management/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    File Management
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2_3_2_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_3_2_5" id="__nav_2_2_3_2_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Identifying System Information
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_2_2_3_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_3_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Identifying System Information
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../System_interaction/os_module/Identifying%20System%20Information/01.Identifiying%20Operating%20System/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Identifying Operating System
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../System_interaction/os_module/Identifying%20System%20Information/02.Identifiying%20Enverioment%20Variables/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Identifying Operating System
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-integer-validation-and-why-do-we-need-it" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is integer validation and why do we need it?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#types-of-integer-validation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Types of Integer validation:
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Types of Integer validation:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-validate-that-the-user-enters-a-positive-integer-whole-number" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Validate that the user enters a positive integer (whole number):
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-validate-that-the-user-enters-a-negative-integer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Validate that the user enters a negative integer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+  <h1>Integer Validation</h1>
+
+<h2 id="what-is-integer-validation-and-why-do-we-need-it">What is integer validation and why do we need it?</h2>
+<p>In Python programming, we always ask the user to provide information that will be manipulated inside the script.
+The problem is that a programmer must never trust the intention of the user. This is one of the most important rules in programming: <strong>do not trust user input</strong>.</p>
+<p>The user can enter inputs that cause the program to crash, and attackers can intentionally trigger these crashes to access sensitive information. They force the program to fail by entering invalid inputs.</p>
+<p>Because of that, we need to validate user input correctly to avoid such issues. User input validation can be categorized into many types depending on what you want to validate and what you expect the user to enter.</p>
+<p><strong>Integer validation</strong> means being completely sure that the user enters a whole number, not a float, string, or boolean value.</p>
+<p>In the real world, hackers often use tools to scan a network for open <strong>ports</strong>.
+A port is like a numbered door on a computer. These numbers are always whole numbers (integers), such as 80 or 443.</p>
+<p>When you write a script to scan a port, you must make sure the user provides a whole number.
+If the user types <code>"ABC"</code> instead of <code>"80"</code>, the program will crash.</p>
+<p>In Python, we use the <code>input()</code> function to get data, but it always returns text (a string). We then use <code>int()</code> to try to convert that text into a whole number.</p>
+<hr />
+<p><strong>For Example:</strong></p>
+<p>If you want to build a basic port scanner, you need to ask the user which port number they want to scan.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">target_port</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter the port number: &quot;</span><span class="p">))</span>
+</code></pre></div>
+<p><strong>Output:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Enter the port number:
+</code></pre></div>
+<p>The script will wait for the user input. Whatever the user enters will be stored as a string value, so we then try to convert it into an integer using the <code>int()</code> method.</p>
+<p>After the user enters their input, many cases can happen. In security, we call this <strong>attack surface analysis</strong>.</p>
+<p><strong>Possible cases:</strong></p>
+<p><strong>Case 1: The user entered a valid port number (0–65535)</strong></p>
+<p>If the user enters a valid value, for example <code>80</code>, the <code>input()</code> function stores it as a string <code>"80"</code>.
+Then <code>int()</code> successfully converts it into the integer <code>80</code> and stores it in the variable <code>target_port</code>.</p>
+<p>The program runs normally, and no errors occur.</p>
+<hr />
+<p><strong>Case 2: The user entered a string value such as <code>"EIGHTY"</code></strong></p>
+<p>If the user enters <code>"EIGHTY"</code>, the <code>input()</code> function stores it as a string.
+When <code>int()</code> tries to convert this value, Python cannot convert non-numeric text into an integer.</p>
+<p>This will cause a <strong>ValueError</strong>, and the program will crash if the input is not validated.</p>
+<hr />
+<p><strong>Case 3: The user entered a negative value such as <code>-80</code></strong></p>
+<p>If the user enters <code>-80</code>, <code>int()</code> will successfully convert it into an integer because <code>-80</code> is still a valid integer value in Python.</p>
+<p>However, this value is <strong>invalid in the context of port numbers</strong>, because port numbers cannot be negative.
+If this case is not handled, the program logic becomes incorrect even though no exception is raised.</p>
+<p><code>int(-80)</code> works in Python because of how the <strong><code>int()</code> function and the integer type</strong> are defined:</p>
+<ol>
+<li>
+<p><strong><code>int()</code> converts strings or numbers into Python integers.</strong>
+Python integers (<code>int</code>) can be <strong>negative, zero, or positive</strong>. There is no restriction on sign.</p>
+</li>
+<li>
+<p>When you do:</p>
+</li>
+</ol>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">x</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="s2">&quot;-80&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>-Python sees the string <code>"-80"</code>
+-The <code>-</code> sign is part of the numeric literal
+-<code>int()</code> parses it and produces the integer <code>-80</code></p>
+<ol>
+<li>From Python’s point of view, <code>-80</code> is a <strong>perfectly valid integer</strong>, so no error occurs.</li>
+</ol>
+<p>The reason this is important in your context (ports) is that <strong>just because Python allows it
+ doesn’t mean it’s semantically valid</strong>. Port numbers cannot be negative in networking,
+so you need to check for that <strong>after</strong> converting with <code>int()</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">if</span> <span class="n">target_port</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">target_port</span> <span class="o">&gt;</span> <span class="mi">65535</span><span class="p">:</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Invalid port number!&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>So, <code>int(-80)</code> works because Python’s integers are signed, but <code>-80</code> is <strong>invalid for your specific use case</strong>.</p>
+<p><strong>Case 4: The user entered a string with a sign such as <code>"+80"</code></strong></p>
+<p>If the user enters <code>"+80"</code>, Python can successfully convert it using <code>int()</code> because <code>+80</code> is a valid integer representation.</p>
+<p>This means no error will occur, and the value will become <code>80</code>.
+Even though this input works, it should still be considered during validation because it is a user-controlled input.</p>
+<hr />
+<p><strong>Case 5: The user entered a port number greater than the maximum allowed value</strong></p>
+<p>If the user enters a number greater than the maximum port value (65535), <code>int()</code> will still convert it successfully.</p>
+<p>However, this value is <strong>invalid from a networking perspective</strong>, because valid port numbers must be between 0 and 65535.</p>
+<p>If this case is not checked, the program may behave incorrectly or attempt operations that make no sense.</p>
+<p><strong>Case 6: The user entered an empty input or only spaces</strong></p>
+<p>If the user presses Enter without typing anything, or enters only spaces, <code>input()</code> stores it as an empty string.
+Trying to convert it with <code>int()</code> will cause a <strong>ValueError</strong>, crashing the program if not handled.</p>
+<hr />
+<p><strong>Case 7: The user entered a float value such as <code>80.5</code></strong></p>
+<p>If the user enters <code>80.5</code>, <code>int()</code> cannot directly convert it unless explicitly cast or rounded.
+This will also cause a <strong>ValueError</strong>, and the program will crash without proper validation.</p>
+<hr />
+<p><strong>Case 8: The user entered special characters or symbols such as <code>@80</code> or <code>#123</code></strong></p>
+<p>Any non-numeric characters combined with numbers will cause <code>int()</code> to fail, raising a <strong>ValueError</strong>.
+Attackers can use this to test for input vulnerabilities.</p>
+<hr />
+<p><strong>Case 9: The user entered a very large number beyond Python’s integer limit</strong> <em>(rare in Python 3 but theoretically possible if using other systems)</em></p>
+<p>Python 3 handles arbitrarily large integers, but in some applications or libraries, extremely large numbers may cause overflows or unexpected behavior.
+Port numbers beyond 65535 are <strong>invalid</strong> in networking terms, even if Python accepts them as integers.</p>
+<hr />
+<h2 id="types-of-integer-validation">Types of Integer validation:</h2>
+<p>In Python programming, validating user input is essential to ensure the program runs safely and correctly.
+Depending on what you expect from the user, integer validation can take different forms. Here are the main types:</p>
+<hr />
+<h3 id="1-validate-that-the-user-enters-a-positive-integer-whole-number">1. Validate that the user enters a positive integer (whole number):</h3>
+<h4 id="the-checks-that-we-usually-include">The checks that we usually include:</h4>
+<p>This validation ensures that the user provides <strong>non-negative integers only</strong> (0 or greater). In this validation case, we ask the user to enter a positive integer only. Then we will convert the user input into an integer using <code>int()</code>, and also verify that the integer is greater than or equal to zero (<code>&gt;= 0</code>).</p>
+<p><strong>- Step 1: Ask the user to enter a positive integer value using <code>input()</code> method:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">user_input</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Please enter a positive integer value: &quot;</span><span class="p">)</span>
+</code></pre></div>
+<p><strong>- Step 2: Convert the user input into an integer using the <code>int()</code> method</strong></p>
+<p>This method will convert the string user input into an integer:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">target_value</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">user_input</span><span class="p">)</span>
+</code></pre></div>
+<ul>
+<li><strong>Case 1:</strong> If the value converts successfully, store it in the variable.</li>
+<li><strong>Case 2:</strong> If the value does not convert successfully, Python will raise an exception. This exception needs to be handled, and the user should be asked again to enter a valid positive integer.</li>
+</ul>
+<p><strong>- Step 3: Ensure that the user value is greater than or equal to zero</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">if</span> <span class="n">target_value</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">:</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;You entered a positive integer.&quot;</span><span class="p">)</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;You didn&#39;t enter a positive integer.&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p><strong>- Step 4: Repeat the previous checks using a loop</strong></p>
+<p>We have to continuously recheck the input until the user enters a valid positive integer. This ensures that the program does not crash and only accepts correct input. The general approach:</p>
+<ul>
+<li>Wrap Steps 1–3 in a loop</li>
+<li>Catch exceptions when conversion fails</li>
+<li>Reask the user to enter the value until it passes all checks</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>    <span class="k">try</span><span class="p">:</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>        <span class="n">user_input</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Please enter a positive integer value: &quot;</span><span class="p">)</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>        <span class="n">target_value</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">user_input</span><span class="p">)</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>        <span class="k">if</span> <span class="n">target_value</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">:</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;You entered a positive integer.&quot;</span><span class="p">)</span>
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>            <span class="k">break</span>  <span class="c1"># exit the loop once input is valid</span>
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>        <span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;You didn&#39;t enter a positive integer. Try again.&quot;</span><span class="p">)</span>
+<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>    <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a>        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Invalid input. Please enter a numeric positive integer.&quot;</span><span class="p">)</span>
+</code></pre></div>
+<h4 id="application-of-this-check">Application of this check:</h4>
+<p>Used for port numbers, quantities, ages, or any input that cannot be negative.
+Ensures invalid negative inputs or non-numeric inputs are rejected, and
+the program continues to run safely without crashing.</p>
+<hr />
+<h3 id="2-validate-that-the-user-enters-a-negative-integer">2. Validate that the user enters a negative integer</h3>
+<p>This validation ensures that the user provides <strong>integers less than zero</strong>.</p>
+<p><strong>Checks usually include:</strong></p>
+<ul>
+<li>Convert the input to an integer using <code>int()</code></li>
+<li>Verify that the integer is less than zero (<code>&lt; 0</code>)</li>
+</ul>
+<p><strong>Application of this check:</strong></p>
+<p>Used for error codes, offsets, or cases where only negative numbers are meaningful.</p>
+<hr />
+<p><strong>3. Validate that the user enters any integer (positive, negative, or zero) and not a string</strong></p>
+<p>This is the most general type of integer validation. It ensures the input is numeric and can include all integers, regardless of sign.</p>
+<p><strong>Checks usually include:</strong></p>
+<ul>
+<li>Attempt to convert the input to an integer using <code>int()</code></li>
+<li>Catch <code>ValueError</code> exceptions if the conversion fails (for example, if the user enters <code>"abc"</code> or <code>"12.5"</code>)</li>
+<li>Optionally, check for limits or constraints depending on the application</li>
+</ul>
+<p><strong>Application of this check:</strong></p>
+<p>Used when the program accepts all integers, such as counters, general numeric input, or configuration values. Ensures strings or floats are rejected.</p>
+<hr />
+<p><strong>4. Validate that the user enters a non-zero integer</strong></p>
+<p>This validation ensures the user provides an integer that is <strong>not zero</strong>.</p>
+<p><strong>Checks usually include:</strong></p>
+<ul>
+<li>Convert the input to <code>int()</code></li>
+<li>Verify that <code>int(input) != 0</code></li>
+</ul>
+<p><strong>Application of this check:</strong></p>
+<p>Used for divisors in calculations, configuration offsets, or any scenario where zero is invalid.</p>
+<hr />
+<p><strong>5. Validate that the user enters an even or odd integer</strong></p>
+<p>This validation ensures that the integer satisfies a <strong>parity condition</strong>.</p>
+<p><strong>Checks usually include:</strong></p>
+<ul>
+<li>Convert the input to <code>int()</code></li>
+<li>For even: <code>int(input) % 2 == 0</code></li>
+<li>For odd: <code>int(input) % 2 != 0</code></li>
+</ul>
+<p><strong>Application of this check:</strong></p>
+<p>Used for alternating sequences, even-numbered IDs, or other parity-specific requirements.</p>
+<hr />
+<p><strong>6. Validate that the user enters an integer divisible by a step (modular integer)</strong></p>
+<p>This validation ensures the input is a multiple of a specific step or interval.</p>
+<p><strong>Checks usually include:</strong></p>
+<ul>
+<li>Convert the input to <code>int()</code></li>
+<li>Verify that <code>int(input) % step == 0</code></li>
+</ul>
+<p><strong>Application of this check:</strong></p>
+<p>Used for multiples of 5, even port ranges, or any scenario requiring fixed-step increments.</p>
+<hr />
+<p><strong>7. Validate that the user enters a strictly formatted integer (no extra characters)</strong></p>
+<p>This validation ensures the input contains only digits, with an optional leading <code>+</code> or <code>-</code>.</p>
+<p><strong>Checks usually include:</strong></p>
+<ul>
+<li>Use a regular expression like <code>^[+-]?\d+$</code></li>
+<li>Convert to <code>int()</code> only if it matches</li>
+</ul>
+<p><strong>Application of this check:</strong></p>
+<p>Prevents inputs like <code>"12abc"</code>, <code>"12.0"</code>, or <code>" 80 "</code> from passing validation. Useful for secure input parsing.</p>
+<hr />
+<p><strong>8. Validate that the user enters a custom domain integer</strong></p>
+<p>This validation ensures the input is one of a <strong>predefined set of integers</strong>.</p>
+<p><strong>Checks usually include:</strong></p>
+<ul>
+<li>Convert input to <code>int()</code></li>
+<li>Verify that <code>int(input) in allowed_values</code></li>
+</ul>
+<p><strong>Application of this check:</strong></p>
+<p>Used for menu options, choice numbers, or any input that must match a specific allowed list.</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../../../../..", "features": ["navigation.sections", "navigation.expand", "search.highlight", "content.code.copy", "navigation.top"], "search": "../../../../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
