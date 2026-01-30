@@ -1,0 +1,5490 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://minasayed.github.io/encryptedwiki/offensive_Programming/Python_for_Cybersecurity/System_interaction/os_module/03.Directory%20Management/">
+      
+      
+        <link rel="prev" href="../01.Introduction%20to%20os%20module/">
+      
+      
+        <link rel="next" href="../03.Identifiying%20System%20Information/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>Folders Management - Encrypted Wiki</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="light-blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#navigation-of-directories" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../../.." title="Encrypted Wiki" class="md-header__button md-logo" aria-label="Encrypted Wiki" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Encrypted Wiki
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Folders Management
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="light-blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="light-blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../../.." title="Encrypted Wiki" class="md-nav__button md-logo" aria-label="Encrypted Wiki" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Encrypted Wiki
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    offensive Programming
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    offensive Programming
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    C for Cybersecurity
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    C for Cybersecurity
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_1_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1_1" id="__nav_2_1_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    C programming fundamentals
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_1_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    C programming fundamentals
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_1_1_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1_1_1" id="__nav_2_1_1_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The structure of C Programming
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_1_1_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1_1_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    The structure of C Programming
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../C_for_Cybersecurity/C_programming_fundamentals/The_structure_of_C_Programming/01.Introduction%20to%20structure%20of%20C%20Programming/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction to structure of C program
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_1_1_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1_1_2" id="__nav_2_1_1_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Variables in C programming
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_1_1_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1_1_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Variables in C programming
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../C_for_Cybersecurity/C_programming_fundamentals/Variables_in_C_programming/01.Introuction%20to%20Varaiables%20in%20C/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introuction to variables in C programming
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Python for Cybersecurity
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Python for Cybersecurity
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_1" id="__nav_2_2_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Building Interactive CLIs with cmd Module
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Building Interactive CLIs with cmd Module
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Building_Interactive_CLIs_with_cmd_Module/01.Introduction%20to%20cmd%20module/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction to cmd module
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_2" id="__nav_2_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Python Fundamentals
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Python Fundamentals
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_2_1" id="__nav_2_2_2_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Built in functions in Python
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_2_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Built in functions in Python
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python_Fundamentals/Built-in_functions_in_Python/01.The%20print%28%29function/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The print () function in python
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_2_2" id="__nav_2_2_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data structure in Python
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_2_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Data structure in Python
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2_2_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_2_2_1" id="__nav_2_2_2_2_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lists in Python
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_2_2_2_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_2_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Lists in Python
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python_Fundamentals/Data_structure_in_Python/Lists_in_Python/01.Introduction%20to%20lists/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction to lists in Python
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_2_3" id="__nav_2_2_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exception handling in Python
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_2_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Exception handling in Python
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python_Fundamentals/Exception_handling_in_Python/01.Introduction%20to%20Exception%20Handling/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction to Exception Handling
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2_2_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_2_3_2" id="__nav_2_2_2_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Python Exception Hierarchy
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_2_2_2_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_2_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Python Exception Hierarchy
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2_2_3_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_2_3_2_1" id="__nav_2_2_2_3_2_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ImportError
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="6" aria-labelledby="__nav_2_2_2_3_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_2_3_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    ImportError
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python_Fundamentals/Exception_handling_in_Python/Python%20Exception%20Hierarchy/ImportError/01.ModuleNotFoundError/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01.ModuleNotFoundError
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2_2_3_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_2_3_2_2" id="__nav_2_2_2_3_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LookupError
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="6" aria-labelledby="__nav_2_2_2_3_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_2_3_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    LookupError
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python_Fundamentals/Exception_handling_in_Python/Python%20Exception%20Hierarchy/LookupError/02.KeyError/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02.KeyError
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2_2_3_2_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_2_3_2_2_2" id="__nav_2_2_2_3_2_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IndexError
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="7" aria-labelledby="__nav_2_2_2_3_2_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_2_3_2_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    IndexError
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python_Fundamentals/Exception_handling_in_Python/Python%20Exception%20Hierarchy/LookupError/IndexError/01.Introduction%20to%20IndexError/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction to IndexError
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2_2_3_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_2_3_2_3" id="__nav_2_2_2_3_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    NameError
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="6" aria-labelledby="__nav_2_2_2_3_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_2_3_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    NameError
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python_Fundamentals/Exception_handling_in_Python/Python%20Exception%20Hierarchy/NameError/01.UnboundLocalError/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01.UnboundLocalError
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2_2_3_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_2_3_2_4" id="__nav_2_2_2_3_2_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TypeError
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="6" aria-labelledby="__nav_2_2_2_3_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_2_3_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    TypeError
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python_Fundamentals/Exception_handling_in_Python/Python%20Exception%20Hierarchy/TypeError/01.Introduction%20to%20TypeError/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01.Introduction to TypeError
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_2_4" id="__nav_2_2_2_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Strings in Python
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_2_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Strings in Python
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python_Fundamentals/Strings_in_Python/01.Introduction%20to%20string%20data%20type/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01.Introduction to string data type
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2_2_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_2_4_2" id="__nav_2_2_2_4_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    String formating
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_2_2_2_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_2_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    String formating
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python_Fundamentals/Strings_in_Python/String_formating/01.Formating%20strings%20using%20f-strings/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Formating string using f-strings method
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2_2_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_2_5" id="__nav_2_2_2_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    User Input Validation
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_2_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    User Input Validation
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2_2_5_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_2_5_1" id="__nav_2_2_2_5_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01.Type Validation
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_2_2_2_5_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_2_5_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    01.Type Validation
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2_2_5_1_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_2_5_1_1" id="__nav_2_2_2_5_1_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Collection Types Validation
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="6" aria-labelledby="__nav_2_2_2_5_1_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_2_5_1_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Collection Types Validation
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python_Fundamentals/User_Input_Validation/01.Type_Validation/Collection_Types_Validation/01.%20Tuple%20Validation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01. Tuple Validation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python_Fundamentals/User_Input_Validation/01.Type_Validation/Collection_Types_Validation/02.%20List%20Validation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02. List Validation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python_Fundamentals/User_Input_Validation/01.Type_Validation/Collection_Types_Validation/03.%20Set%20Validation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03. Set Validation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python_Fundamentals/User_Input_Validation/01.Type_Validation/Collection_Types_Validation/04.%20Dictionary%20Validation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04. Dictionary Validation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2_2_5_1_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_2_5_1_2" id="__nav_2_2_2_5_1_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Numeric Types Validation
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="6" aria-labelledby="__nav_2_2_2_5_1_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_2_5_1_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Numeric Types Validation
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python_Fundamentals/User_Input_Validation/01.Type_Validation/Numeric_Types_Validation/01.%20Integer%20Validation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Integer Validation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python_Fundamentals/User_Input_Validation/01.Type_Validation/Numeric_Types_Validation/02.%20Float%20Validation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02. Float Validation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python_Fundamentals/User_Input_Validation/01.Type_Validation/Numeric_Types_Validation/03.%20Complex%20Numbers%20Validation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03. Complex Numbers Validation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2_2_5_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_2_5_2" id="__nav_2_2_2_5_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02.Format and Structure Validation
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_2_2_2_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_2_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    02.Format and Structure Validation
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2_2_5_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_2_5_2_1" id="__nav_2_2_2_5_2_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01.Regular Expressions Validation
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="6" aria-labelledby="__nav_2_2_2_5_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_2_5_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    01.Regular Expressions Validation
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python_Fundamentals/User_Input_Validation/02.Format_and_Structure_Validation/01.Regular_Expressions_Validation/01.%20Email%20Format%20Validation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01. Email Format Validation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python_Fundamentals/User_Input_Validation/02.Format_and_Structure_Validation/01.Regular_Expressions_Validation/02.%20Phone%20Number%20Format%20Validation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02. Phone Number Format Validation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python_Fundamentals/User_Input_Validation/02.Format_and_Structure_Validation/01.Regular_Expressions_Validation/03.%20UUID%20Validation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03. UUID Validation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python_Fundamentals/User_Input_Validation/02.Format_and_Structure_Validation/01.Regular_Expressions_Validation/04.%20Alphanumeric%20Validation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04. Alphanumeric Validation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python_Fundamentals/User_Input_Validation/02.Format_and_Structure_Validation/01.Regular_Expressions_Validation/05.%20Custom%20Pattern%20Validation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05. Custom Pattern Validation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2_2_5_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_2_5_2_2" id="__nav_2_2_2_5_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02.Dates and Times Validation
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="6" aria-labelledby="__nav_2_2_2_5_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_2_5_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    02.Dates and Times Validation
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python_Fundamentals/User_Input_Validation/02.Format_and_Structure_Validation/02.Dates_and_Times_Validation/01.%20Dates%20and%20Times%20Validation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01. Dates and Times Validation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python_Fundamentals/User_Input_Validation/02.Format_and_Structure_Validation/02.Dates_and_Times_Validation/02.%20ISO%20Format%20Validation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02. ISO Format Validation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2_2_5_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_2_5_2_3" id="__nav_2_2_2_5_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03.Data Structure Formats Validation
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="6" aria-labelledby="__nav_2_2_2_5_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_2_5_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    03.Data Structure Formats Validation
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python_Fundamentals/User_Input_Validation/02.Format_and_Structure_Validation/03.Data_Structure_Formats_Validation/01.%20JSON%20Structure%20Validation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01. JSON Structure Validation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python_Fundamentals/User_Input_Validation/02.Format_and_Structure_Validation/03.Data_Structure_Formats_Validation/02.%20XML%20Structure%20Validation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02. XML Structure Validation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python_Fundamentals/User_Input_Validation/02.Format_and_Structure_Validation/03.Data_Structure_Formats_Validation/03.%20YAML%20Structure%20Validation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03. YAML Structure Validation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2_2_5_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_2_5_2_4" id="__nav_2_2_2_5_2_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04.Paths and Network Validation
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="6" aria-labelledby="__nav_2_2_2_5_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_2_5_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    04.Paths and Network Validation
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python_Fundamentals/User_Input_Validation/02.Format_and_Structure_Validation/04.Paths_and_Network_Validation/01.%20File%20Paths%20Validation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01. File Paths Validation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python_Fundamentals/User_Input_Validation/02.Format_and_Structure_Validation/04.Paths_and_Network_Validation/02.%20URLs%20Validation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02. URLs Validation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python_Fundamentals/User_Input_Validation/02.Format_and_Structure_Validation/04.Paths_and_Network_Validation/03.%20IP%20Addresses%20Validation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03. IP Addresses Validation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2_2_5_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_2_5_3" id="__nav_2_2_2_5_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03.Range and Boundary Validation
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_2_2_2_5_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_2_5_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    03.Range and Boundary Validation
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2_2_5_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_2_5_3_1" id="__nav_2_2_2_5_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Length and Size Validation
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="6" aria-labelledby="__nav_2_2_2_5_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_2_5_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Length and Size Validation
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python_Fundamentals/User_Input_Validation/03.Range_and_Boundary_Validation/Length_and_Size_Validation/01.%20String%20Length%20Validation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01. String Length Validation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python_Fundamentals/User_Input_Validation/03.Range_and_Boundary_Validation/Length_and_Size_Validation/02.%20List%20Length%20Validation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02. List Length Validation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python_Fundamentals/User_Input_Validation/03.Range_and_Boundary_Validation/Length_and_Size_Validation/03.%20File%20Size%20Validation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03. File Size Validation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2_2_5_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_2_5_3_2" id="__nav_2_2_2_5_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Temporal Ranges Validation
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="6" aria-labelledby="__nav_2_2_2_5_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_2_5_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Temporal Ranges Validation
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python_Fundamentals/User_Input_Validation/03.Range_and_Boundary_Validation/Temporal_Ranges_Validation/01.%20Temporal%20Ranges%20Validation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01. Temporal Ranges Validation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python_Fundamentals/User_Input_Validation/03.Range_and_Boundary_Validation/Temporal_Ranges_Validation/02.%20Resource%20Limits%20Validation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02. Resource Limits Validation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2_2_5_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_2_5_4" id="__nav_2_2_2_5_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04.Presence and Required Field Validation
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_2_2_2_5_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_2_5_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    04.Presence and Required Field Validation
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python_Fundamentals/User_Input_Validation/04.Presence_and_Required_Field_Validation/01.%20Fixed%20Options%20Validation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01. Fixed Options Validation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python_Fundamentals/User_Input_Validation/04.Presence_and_Required_Field_Validation/01.%20Non%20Empty%20Strings%20Validation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01. Non Empty Strings Validation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python_Fundamentals/User_Input_Validation/04.Presence_and_Required_Field_Validation/02.%20Enum%20Checks%20Validation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02. Enum Checks Validation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python_Fundamentals/User_Input_Validation/04.Presence_and_Required_Field_Validation/02.%20Non%20Null%20Values%20Validation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02. Non Null Values Validation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python_Fundamentals/User_Input_Validation/04.Presence_and_Required_Field_Validation/03.%20Mandatory%20Fields%20Validation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03. Mandatory Fields Validation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python_Fundamentals/User_Input_Validation/04.Presence_and_Required_Field_Validation/03.%20Whitelisted%20Characters%20Validation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03. Whitelisted Characters Validation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python_Fundamentals/User_Input_Validation/04.Presence_and_Required_Field_Validation/04.%20Case%20Insensitive%20Allowlist%20Validation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04. Case Insensitive Allowlist Validation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python_Fundamentals/User_Input_Validation/04.Presence_and_Required_Field_Validation/04.%20Conditional%20Presence%20Validation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04. Conditional Presence Validation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python_Fundamentals/User_Input_Validation/04.Presence_and_Required_Field_Validation/05.%20Restricted%20Keywords%20Validation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05. Restricted Keywords Validation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python_Fundamentals/User_Input_Validation/04.Presence_and_Required_Field_Validation/06.%20Predefined%20Pattern%20Validation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    06. Predefined Pattern Validation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2_2_5_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_2_5_5" id="__nav_2_2_2_5_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05.Allowlist and Membership Validation
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_2_2_2_5_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_2_5_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    05.Allowlist and Membership Validation
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python_Fundamentals/User_Input_Validation/05.Allowlist_and_Membership_Validation/01.%20Fixed%20Options%20Validation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01. Fixed Options Validation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python_Fundamentals/User_Input_Validation/05.Allowlist_and_Membership_Validation/02.%20Enum%20Checks%20Validation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02. Enum Checks Validation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python_Fundamentals/User_Input_Validation/05.Allowlist_and_Membership_Validation/03.%20Whitelisted%20Characters%20Validation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03. Whitelisted Characters Validation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python_Fundamentals/User_Input_Validation/05.Allowlist_and_Membership_Validation/04.%20Case%20Insensitive%20Allowlist%20Validation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04. Case Insensitive Allowlist Validation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python_Fundamentals/User_Input_Validation/05.Allowlist_and_Membership_Validation/05.%20Restricted%20Keywords%20Validation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05. Restricted Keywords Validation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python_Fundamentals/User_Input_Validation/05.Allowlist_and_Membership_Validation/06.%20Predefined%20Pattern%20Validation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    06. Predefined Pattern Validation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2_2_5_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_2_5_6" id="__nav_2_2_2_5_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    06.Security Validation
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_2_2_2_5_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_2_5_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    06.Security Validation
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2_2_5_6_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_2_5_6_1" id="__nav_2_2_2_5_6_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Input Injection and Threats
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="6" aria-labelledby="__nav_2_2_2_5_6_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_2_5_6_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Input Injection and Threats
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python_Fundamentals/User_Input_Validation/06.Security_Validation/Input_Injection_and_Threats/01.%20Path%20Traversal%20Validation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01. Path Traversal Validation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python_Fundamentals/User_Input_Validation/06.Security_Validation/Input_Injection_and_Threats/02.%20Command%20Injection%20Validation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02. Command Injection Validation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python_Fundamentals/User_Input_Validation/06.Security_Validation/Input_Injection_and_Threats/03.%20SQL%20Template%20Injection/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03. SQL Template Injection
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python_Fundamentals/User_Input_Validation/06.Security_Validation/Input_Injection_and_Threats/04.%20XSS%20HTML%20Injection/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04. XSS HTML Injection
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python_Fundamentals/User_Input_Validation/06.Security_Validation/Input_Injection_and_Threats/05.%20CSRF%20Validation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05. CSRF Validation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python_Fundamentals/User_Input_Validation/06.Security_Validation/Input_Injection_and_Threats/06.%20Malicious%20Payload%20Detection/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    06. Malicious Payload Detection
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2_2_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_2_6" id="__nav_2_2_2_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Variables in Python
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_2_2_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_2_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Variables in Python
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python_Fundamentals/Variables_in_Python/01.Introduction%20to%20Variables/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction to Variables in Python
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_3" id="__nav_2_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    System interaction
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    System interaction
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_3_1" id="__nav_2_2_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Argparse module
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_2_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Argparse module
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Argparse_module/01.Introduction%20to%20argparse%20module/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction to argparse module
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_3_2" id="__nav_2_2_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Os module
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_2_3_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_2_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Os module
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01.Introduction%20to%20os%20module/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction to os module
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Folders Management
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Folders Management
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#navigation-of-directories" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Navigation of directories:
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Navigation of directories:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#navigating-the-current-working-directory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Navigating the current working directory:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#changing-the-current-directory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changing the current directory:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#listing-contents-of-a-directory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Listing contents of a directory:
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Listing contents of a directory:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-is-oslistdir-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is os.listdir( ) function?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-to-use-it_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How to use it?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creating-new-directories" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Creating new directories:
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Creating new directories:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#way-1-creating-one-single-folder-osmkdir" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Way 1 Creating one single folder (os.mkdir):
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#way-2-creating-multi-folders-folders-inside-folders" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Way 2 Creating multi folders (folders inside folders):
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#removing-directories" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Removing directories:
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Removing directories:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#removing-empty-directory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Removing empty directory:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#removing-non-empty-directory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Removing non-empty directory"
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#renaming-directories" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Renaming directories:
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Renaming directories:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#renaming-a-directory-in-current-location" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Renaming a directory in current location:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#renaming-a-directory-in-a-different-location" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Renaming a directory in a different location:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03.Identifiying%20System%20Information/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Identifying System Information
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04.Files%20Management/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    File Management
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2_3_2_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_3_2_5" id="__nav_2_2_3_2_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Identifying System Information
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_2_2_3_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_3_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Identifying System Information
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Identifying%20System%20Information/01.Identifiying%20Operating%20System/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Identifying Operating System
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Identifying%20System%20Information/02.Identifiying%20Enverioment%20Variables/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Identifying Operating System
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#navigation-of-directories" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Navigation of directories:
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Navigation of directories:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#navigating-the-current-working-directory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Navigating the current working directory:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#changing-the-current-directory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changing the current directory:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#listing-contents-of-a-directory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Listing contents of a directory:
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Listing contents of a directory:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-is-oslistdir-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is os.listdir( ) function?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-to-use-it_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How to use it?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creating-new-directories" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Creating new directories:
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Creating new directories:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#way-1-creating-one-single-folder-osmkdir" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Way 1 Creating one single folder (os.mkdir):
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#way-2-creating-multi-folders-folders-inside-folders" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Way 2 Creating multi folders (folders inside folders):
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#removing-directories" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Removing directories:
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Removing directories:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#removing-empty-directory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Removing empty directory:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#removing-non-empty-directory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Removing non-empty directory"
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#renaming-directories" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Renaming directories:
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Renaming directories:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#renaming-a-directory-in-current-location" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Renaming a directory in current location:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#renaming-a-directory-in-a-different-location" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Renaming a directory in a different location:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+  <h1>Folders Management</h1>
+
+<h2 id="navigation-of-directories">Navigation of directories:</h2>
+<h3 id="navigating-the-current-working-directory">Navigating the current working directory:</h3>
+<p>Imagine the computer is a big house. If you want to navigate in the computer, you have to know your current location or you want to know where are you right now? Because this would be the starting point that you will use to navigate through the house.</p>
+<p>So to know where are you right now? There is a tool (a function) that can be used to get your current working directory of the directory that you are standing in:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span>
+</code></pre></div>
+<p><strong>get</strong>: It means fetch or grabs the information<br />
+<strong>cwd</strong>: it stands for the current working directory  </p>
+<p>This is a function that takes no arguments. It used with empty parentheses only—no arguments needed to use it. Think of it like asking someone, "Where am I?". You don't need to give them any extra information for them to tell you your own location. In Python, you just write it with empty parentheses:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span>
+</code></pre></div>
+<p>It doesn't need to "take" anything because its only job is to "give" you the current address.</p>
+<p>This function is "portable," which means it works exactly the same way on all kinds of computers—no matter if you're using Windows (like on a regular PC), Linux (common on servers), or Mac (Apple computers).</p>
+<p>You type os.getcwd() with the exact same spelling and format every single time. Your code doesn't need to change at all when you move it from one computer to another. That's what makes it portable—it "travels" easily between different systems without breaking.</p>
+<p>Even though you write the command the same way everywhere, the answer you get back will look a bit different because each operating system has its own special rules for showing folder paths:</p>
+<p><strong>System Example of what os.getcwd() returns:</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Windows</strong></th>
+<th><strong>Linux/Mac</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>C:\Users\Documents\MyProject</code> (Uses backslashes <code>\</code>)</td>
+<td><code>/home/user/documents/myproject</code> (Uses forward slashes <code>/</code>)</td>
+</tr>
+</tbody>
+</table>
+<p>So, the os module acts like a smart translator. You speak "Python" to it, and it goes behind the scenes to talk to Windows or Linux in their own languages to get the answer for you.</p>
+<h3 id="changing-the-current-directory">Changing the current directory:</h3>
+<h4 id="how-to-use-it">How to use it?</h4>
+<p>If you want to change your directory or your current directory there is a tool or a fuction that can do this job this tool is:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span> <span class="p">)</span>
+</code></pre></div>
+<p>where:</p>
+<ul>
+<li>
+<p>ch : stands for change to change the currrent working directory</p>
+</li>
+<li>
+<p>dir: is stands for the directory a fancy name for folder.</p>
+</li>
+</ul>
+<p>To use this tool you have to determine the new path or new address you want to move your program focus on it.It moves the focus (the eye) of the program, not the files of the program themselves.</p>
+<p><strong>Let's use the "Flashlight" Analogy: 🔦</strong></p>
+<ul>
+<li>
+<p>Imagine your computer is a dark warehouse full of shelves (folders).</p>
+</li>
+<li>
+<p>Your Python script is a person standing in that warehouse holding a flashlight.</p>
+</li>
+<li>
+<p>Where the flashlight is pointing is the Current Working Directory.</p>
+</li>
+<li>
+<p>When you run os.chdir(), you are telling the person to walk to a different aisle.</p>
+</li>
+<li>
+<p>The person (the script) moves their body and their light to the new aisle, but they did not move the boxes on the shelves.</p>
+</li>
+</ul>
+<p><strong>In technical terms:</strong>
+The .py file (your code) stays exactly where you saved it on the hard drive.The "Focus" (the point of view) of the running program changes.This is matter because If your code is sitting in Folder_A, but you use os.chdir('Folder_B'), your program is now "looking" inside Folder_B.If you try to open a file that is sitting right next to your script in Folder_A, the program will say "I can't find it!" because its "flashlight" is now pointing at Folder_B.</p>
+<p>This function take one input or one parameter which is the path or the address of the new directory you want to move your program's focus to it.You  must put the path (the address) inside the parentheses as a string (inside single quotes '  '  or  double quotes "  " ).</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="s2">&quot;Path&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>or</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="s1">&#39;path&#39;</span><span class="p">)</span>
+</code></pre></div>
+<p>The output of this function will be nothing after you run this command, the computer won't print anything.It just moves silently. To verify you actually moved, you would need to call os.getcwd() again.</p>
+<p><strong>Example:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="c1">#1. Check where we are first</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Starting at:&quot;</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">())</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="c1">#2. Command the program to move to a specific folder</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="s1">&#39;C:/Users/Documents/MyProject&#39;</span><span class="p">)</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="c1">#3. Check again to see the new location</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Now I am at:&quot;</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">())</span>
+</code></pre></div></p>
+<p><strong>Notes:</strong></p>
+<ul>
+<li>A Common "Trap" for Beginners:
+When you use Windows, paths often look like this: C:\Users\Documents. In Python, the backslash () is a "special character." If you try to use it in os.chdir(), Python might get confused.</li>
+</ul>
+<p>Two ways to stay safe:</p>
+<p>Use Forward Slashes: Just use / instead of . Python is smart enough to fix it for you.
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="s1">&#39;C:/Users/Documents&#39;</span><span class="p">)</span>
+</code></pre></div></p>
+<p>The "Raw" String: Put an r before your quotes. This tells Python: "Treat this text exactly as it is, no special characters."
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;C:\Users\Documents&#39;</span><span class="p">)</span>
+</code></pre></div></p>
+<ul>
+<li>Using the relative path and absolute path:</li>
+</ul>
+<p>You can use the relative path and the aboslute path inside this function.imagine you want to move to a folder that is inside your current room. For example, you are in Documents and you want to enter a folder called Photos.Instead of typing the whole long address (C:/Users/Documents/Photos), you can just type the name of the folder: </p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="s1">&#39;Photos&#39;</span><span class="p">)</span>
+</code></pre></div>
+<h4 id="what-is-the-purpose-of-this-tool-or-function">What is the purpose of this tool or function?</h4>
+<p>If we can just use <strong>Absolute Paths</strong> (the full address) to find any file, why bother "moving" the program at all?Here are the three main reasons why programmers use <code>os.chdir()</code>:</p>
+<p><strong>1. It makes your code "Cleaner" and "Shorter" ✍️</strong></p>
+<p>Imagine you have 10 files in a folder called:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>C:/Users/John/Documents/Year_2024/Projects/Python/Data_Files/
+</code></pre></div>
+<ul>
+<li><strong>Without <code>chdir</code>:</strong> Every time you want to open a file, you have to type that giant address:</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>open(&#39;C:/Users/John/Documents/Year_2024/Projects/Python/Data_Files/file1.txt&#39;)
+</code></pre></div>
+<ul>
+<li><strong>With <code>chdir</code>:</strong> You move there once, and then you just type the short name:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>os.chdir(&#39;C:/Users/John/Documents/Year_2024/Projects/Python/Data_Files/&#39;)
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>open(&#39;file1.txt&#39;)
+</code></pre></div></li>
+</ul>
+<p>It saves you from typing (and making typos!) in long addresses.</p>
+<p><strong>2. Working with "Batches" of Files 📦 :</strong></p>
+<p>If you have a folder full of 100 photos and you want to rename all of them, it is much easier to "step inside" that folder first. Once you are inside, you can tell Python: <em>"Look at everything here and add 'Fixed_' to the name."</em> It is easier for the program to work on "what is right in front of it."</p>
+<p><strong>3. Using Shared Tools 🛠️:</strong></p>
+<p>Sometimes, you might download a script or a tool that <strong>only</strong> works if it is running inside a specific folder (because it looks for its own settings or images in the "current room"). By using <code>os.chdir()</code>, you can bring your program's focus to that tool's folder so it can run correctly.</p>
+<p><strong>A Simple Life Example:</strong></p>
+<p>Think of your computer like a <strong>Kitchen</strong>.</p>
+<ul>
+<li><strong>The Absolute Path way:</strong> You stand in the hallway and reach your long arm all the way into the cupboard to grab a plate, then reach all the way to the fridge to grab an egg. It's exhausting!</li>
+<li><strong>The <code>os.chdir()</code> way:</strong> You <strong>walk into the kitchen</strong>. Now, the plates, the fridge, and the stove are all "Relative" to you. Everything is within easy reach.</li>
+</ul>
+<h2 id="listing-contents-of-a-directory">Listing contents of a directory:</h2>
+<h3 id="what-is-oslistdir-function">What is os.listdir( ) function?</h3>
+<p>The <code>os.listdir()</code> is a function inside the os module that can be used to list the content of a folder. It tells you what files or folders are sitting inside that folder. If you want to explore the content of a specific folder/directory, then this tool will enable you to do so. When you use <code>os.listdir()</code>, you are asking Python to look at a folder and give you a list of names for everything sitting inside it.</p>
+<p>There are some important facts about this function you have to take into consideration:</p>
+<ul>
+<li><strong>The function returns a list of strings:</strong></li>
+</ul>
+<p>This function only returns a list of the folder's content as strings, such as:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>[&#39;notes.txt&#39;, &#39;Photos&#39;, &#39;Budget.xlsx&#39;]
+</code></pre></div>
+<ul>
+<li><strong>It is shallow:</strong></li>
+</ul>
+<p>It is shallow" means it doesn't dig deep.It only shows you what is in the immediate folder. If there is a folder named Photos, it will tell you the folder exists, but it won't show you the pictures inside Photos yet.</p>
+<p>Think of <code>os.listdir()</code> like peeking into a single drawer. It shows you everything sitting right there on top—like files and folders. But if one of those things is another drawer (like your "Photos" folder), it just says "Hey, there's a drawer here" without opening it to show the photos inside.</p>
+<p><strong>For Example:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>os.listdir(&#39;.&#39;)  # Shows: [&#39;Photos&#39;, &#39;notes.txt&#39;]
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a># But NOT the images inside Photos!
+</code></pre></div></p>
+<p>This keeps it simple and fast—no automatic deep dive into subfolders.</p>
+<ul>
+<li><strong>The order of the content:</strong></li>
+</ul>
+<p>The names aren't always in alphabetical order; they usually appear in the order the computer stores them.<code>os.listdir()</code> gives folder names in the order the computer saves them on the disk. This order is not always A to Z. It can be different each time.</p>
+<p><strong>For example:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a># It might show:
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>[&#39;Budget.xlsx&#39;, &#39;notes.txt&#39;, &#39;Photos&#39;]
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a># Or this on another computer:
+<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>[&#39;Photos&#39;, &#39;notes.txt&#39;, &#39;Budget.xlsx&#39;]
+</code></pre></div>
+<p>To get A to Z order, use <code>sorted(os.listdir('folder'))</code>.</p>
+<h3 id="how-to-use-it_1">How to use it?</h3>
+<p>You have two simple ways to use <code>os.listdir()</code>.</p>
+<h4 id="way-1-check-your-current-folder">Way 1: Check your current folder</h4>
+<p>If you don't put anything inside the parentheses (), it looks at the folder where your Python code is running right now.This checks the folder where your Python script is running. 
+No path needed—just empty parentheses.</p>
+<p><strong>For example:</strong></p>
+<p>Say your script is in a folder called <code>MyProject</code> with these files: <code>script.py</code>, <code>data.csv</code>, <code>images/</code>.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="n">content</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">()</span>  <span class="c1"># Empty = current folder</span>
+<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>
+<a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a><span class="nb">print</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
+<a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a>
+<a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a><span class="c1"># Output: [&#39;script.py&#39;, &#39;data.csv&#39;, &#39;images&#39;]</span>
+</code></pre></div>
+<p><strong>What happens step-by-step:</strong>
+1. Python looks where your script lives.
+2. Lists all files/folders there.
+3. Returns them as a list of names.</p>
+<h4 id="way-2-check-a-different-folder-detailed-examples">Way 2: Check a different folder (detailed examples)</h4>
+<p>You can look inside any other folder without changing your position. Just give it the folder's path (like an address).
+Give a path to any folder. Use forward slashes <code>/</code> (works on Windows/Mac/Linux) or double backslashes <code>\\</code> on Windows.</p>
+<p><strong>Example A: Relative path (near your current folder)</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="n">content</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="s1">&#39;images&#39;</span><span class="p">)</span>  <span class="c1"># Folder inside current one</span>
+<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a>
+<a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a><span class="nb">print</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
+<a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a>
+<a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a><span class="c1"># Output: [&#39;photo1.jpg&#39;, &#39;photo2.png&#39;]</span>
+</code></pre></div>
+<p><strong>Example B: Absolute path (full address from disk root)</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>
+<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="n">music_list</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="s1">&#39;C:/Users/YourName/Music&#39;</span><span class="p">)</span>  <span class="c1"># Windows</span>
+<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>
+<a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a><span class="c1"># Or: music_list = os.listdir(&#39;/home/user/Music&#39;)  # Linux/Mac</span>
+<a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a>
+<a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a><span class="nb">print</span><span class="p">(</span><span class="n">music_list</span><span class="p">)</span>
+<a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a><span class="c1"># Output: [&#39;song1.mp3&#39;, &#39;playlist.m3u&#39;, &#39;Albums&#39;]</span>
+</code></pre></div>
+<p><strong>Example C: Handling errors</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>
+<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="k">try</span><span class="p">:</span>
+<a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a>    <span class="n">files</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="s1">&#39;nonexistent_folder&#39;</span><span class="p">)</span>
+<a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a><span class="k">except</span> <span class="ne">FileNotFoundError</span><span class="p">:</span>
+<a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Folder not found!&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p><strong>Notes:</strong></p>
+<ul>
+<li>Paths can be strings like <code>'folder/'</code> or <code>'../parent_folder'</code>.</li>
+<li>Always <code>import os</code> first.</li>
+<li>Returns list of strings (filenames only, no full paths).Since os.listdir() only gives you a list of text strings, the computer doesn't "know" if a name is a file or a folder just by looking at the list.</li>
+</ul>
+<h2 id="creating-new-directories">Creating new directories:</h2>
+<p>There are two ways to create new directories :</p>
+<h3 id="way-1-creating-one-single-folder-osmkdir">Way 1 Creating one single folder (os.mkdir):</h3>
+<h4 id="creating-a-single-directory-in-the-current-location">Creating a single directory in the current location:</h4>
+<p>If you want to create a single folder in your current folder you can use this function:</p>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a> <span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="s2">&quot;FolderName&quot;</span><span class="p">)</span>
+</code></pre></div>
+where:</p>
+<ul>
+<li>mk stands for make ro create or make new folder.</li>
+<li>dir: stands for directory</li>
+</ul>
+<p>This function only take the name of the new directory as a string using single quote (' ') or double quote (" ").</p>
+<p><strong>For example:</strong></p>
+<p>If You want to create a folder called "Photos" inside your current location.you write:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a> <span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="s2">&quot;Photos&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p><strong>Notes:</strong></p>
+<ul>
+<li>
+<p>It only works if the "parent" folder already exists. If you try to create Movies/Action/Batman and the Movies folder doesn't exist yet, it will crash with an error.</p>
+</li>
+<li>
+<p>If you run os.mkdir('photos') and the folder already exists, Python will crash and show an error called: FileExistsError: [Errno 17] File exists: 'photos'.It’s like trying to build a room where a wall already stands; the computer doesn't want to accidentally overwrite or mess up what is already there.To prevent your program from crashing, you should always "Ask before you Act." We use the tool we talked about earlier: <code>os.path.exists()</code>.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>
+<a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a><span class="n">folder_name</span> <span class="o">=</span> <span class="s1">&#39;photos&#39;</span>
+<a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a>
+<a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a><span class="c1">#1. Ask: Does this folder already exist?</span>
+<a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a><span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">folder_name</span><span class="p">):</span>
+<a id="__codelineno-21-7" name="__codelineno-21-7" href="#__codelineno-21-7"></a>    <span class="c1"># 2. If it does NOT exist, create it</span>
+<a id="__codelineno-21-8" name="__codelineno-21-8" href="#__codelineno-21-8"></a>    <span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">folder_name</span><span class="p">)</span>
+<a id="__codelineno-21-9" name="__codelineno-21-9" href="#__codelineno-21-9"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Folder created successfully!&quot;</span><span class="p">)</span>
+<a id="__codelineno-21-10" name="__codelineno-21-10" href="#__codelineno-21-10"></a><span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-21-11" name="__codelineno-21-11" href="#__codelineno-21-11"></a>    <span class="c1"># 3. If it DOES exist, just give a friendly message</span>
+<a id="__codelineno-21-12" name="__codelineno-21-12" href="#__codelineno-21-12"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The folder is already there, no need to create it.&quot;</span><span class="p">)</span>
+</code></pre></div>
+</li>
+</ul>
+<h4 id="creating-a-single-directory-in-different-location">Creating a single directory in different location:</h4>
+<p>You are not limited to the "room" you are standing in. You can build a folder anywhere in the house as long as you have the address (the path).Instead of just giving the name of the folder to <code>os.mkdir()</code>, you give it the <strong>Path</strong> of where you want that folder to be.</p>
+<p>**For example:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a><span class="c1"># Creating a folder in a completely different location</span>
+<a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a><span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="s1">&#39;C:/Users/Documents/New_Project&#39;</span><span class="p">)</span>
+</code></pre></div>
+<p>Just like in real life, you can only build a room if:</p>
+<ol>
+<li>
+<p><strong>The path exists:</strong> You can't build a room in a house that hasn't been built yet. (The parent folder must exist).</p>
+</li>
+<li>
+<p><strong>You have permission:</strong> You can't build a room in your neighbor's house! Some parts of the computer (like system folders) are "locked," and Python will give you a <code>PermissionError</code> if you try to create something there.</p>
+</li>
+</ol>
+<h3 id="way-2-creating-multi-folders-folders-inside-folders">Way 2 Creating multi folders (folders inside folders):</h3>
+<p>The problem with using <code>os.mkdir()</code> to create multiple folders at once is that if you try to build <code>Year_2024/Summer/Photos</code> all at once using <code>mkdir</code>, Python will look for <code>Year_2024</code>, and if it doesn't see it, it crashes. </p>
+<p>It cannot build the "middle" parts for you. So <code>os.mkdir()</code> is used only to build one room at a time—like if you want to create a folder called <code>Photos</code>, and your current location is the <code>Documents</code> folder, this function will work perfectly without throwing any errors.</p>
+<p>So this is where <code>os.makedirs()</code> comes in. It is like a smart builder that builds the entire path even if the middle folders are missing.</p>
+<p><strong>Example:</strong><br />
+Imagine your current folder is totally empty. You want to create this structure: 
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>Project/Data/2024`
+</code></pre></div></p>
+<p>If you use:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>`os.makedirs(&quot;Project/Data/2024&quot;)`
+</code></pre></div></p>
+<p>Python will:</p>
+<ul>
+<li>
+<p>Look for <code>Project</code>. It's not there? It builds it.</p>
+</li>
+<li>
+<p>Look for <code>Data</code> inside <code>Project</code>. It's not there? It builds it.</p>
+</li>
+<li>
+<p>Look for <code>2024</code> inside <code>Data</code>. It's not there? It builds it.</p>
+</li>
+</ul>
+<h2 id="removing-directories">Removing directories:</h2>
+<h3 id="removing-empty-directory">Removing empty directory:</h3>
+<h3 id="removing-non-empty-directory">Removing non-empty directory"</h3>
+<h2 id="renaming-directories">Renaming directories:</h2>
+<p>There also two way to rename directories:</p>
+<h3 id="renaming-a-directory-in-current-location">Renaming a directory in current location:</h3>
+<p>If you want to rename a folder found in the current working directory we can use the function 
+<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>os.rename(&quot;old_name&quot;, &quot;new_name&quot;)
+</code></pre></div></p>
+<p>This tool needs <strong>two</strong> pieces of information (parameters):</p>
+<ol>
+<li>
+<p><strong>The Old Name:</strong> What it is called now.</p>
+</li>
+<li>
+<p><strong>The New Name:</strong> What you want it to be called.</p>
+</li>
+</ol>
+<p><strong>For example:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>import os
+<a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a>
+<a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a># Let&#39;s rename our folder from &#39;photos&#39; to &#39;Images&#39;
+<a id="__codelineno-26-4" name="__codelineno-26-4" href="#__codelineno-26-4"></a>os.rename(&#39;photos&#39;, &#39;Images&#39;)
+<a id="__codelineno-26-5" name="__codelineno-26-5" href="#__codelineno-26-5"></a>
+<a id="__codelineno-26-6" name="__codelineno-26-6" href="#__codelineno-26-6"></a># Let&#39;s rename a file from &#39;draft.txt&#39; to &#39;final_report.txt&#39;
+<a id="__codelineno-26-7" name="__codelineno-26-7" href="#__codelineno-26-7"></a>os.rename(&#39;draft.txt&#39;, &#39;final_report.txt&#39;)
+</code></pre></div>
+<p><strong>A Word of Caution ⚠️</strong></p>
+<p><code>os.rename()</code> changes a file's name. The problem happens when the new name already exists in that folder. Python might stop with an error. Or worse, it might delete the old file with that name and replace it without telling you.</p>
+<p>Always check if the new name is free before using <code>os.rename()</code>. This keeps your files safe.</p>
+<p><strong>Example:</strong></p>
+<p>You have a file called <code>photo.jpg</code>. You want to rename it to <code>vacation.jpg</code>. First check:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>`import os
+<a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a> if not os.path.exists(&quot;vacation.jpg&quot;):  
+<a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a>    os.rename(&quot;photo.jpg&quot;, &quot;vacation.jpg&quot;) 
+<a id="__codelineno-27-4" name="__codelineno-27-4" href="#__codelineno-27-4"></a>    print(&quot;Renamed safely!&quot;) 
+<a id="__codelineno-27-5" name="__codelineno-27-5" href="#__codelineno-27-5"></a> else:  
+<a id="__codelineno-27-6" name="__codelineno-27-6" href="#__codelineno-27-6"></a>    print(&quot;That name already exists!&quot;)`
+</code></pre></div>
+<p>This way, you never lose files by accident.</p>
+<h3 id="renaming-a-directory-in-a-different-location">Renaming a directory in a different location:</h3>
+<p>You can rename any folder, even if it's not in your current folder. Just use its full path (like a complete address) for both old and new names.</p>
+<p><code>os.rename()</code> needs two things—the old full path and the new full path. Python finds the folder and gives it the new name.</p>
+<p><strong>For example:</strong><br />
+Your current folder is <code>Documents</code>. You want to rename <code>C:/Music/OldSongs</code> to <code>C:/Music/NewHits</code>.</p>
+<p>python</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>import os 
+<a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a>os.rename(&quot;C:/Music/OldSongs&quot;, &quot;C:/Music/NewHits&quot;)
+<a id="__codelineno-28-3" name="__codelineno-28-3" href="#__codelineno-28-3"></a>print(&quot;Folder renamed!&quot;)
+</code></pre></div>
+<p><strong>What happens:</strong></p>
+<ul>
+<li>
+<p>Python goes to <code>C:/Music/</code>.</p>
+</li>
+<li>
+<p>Finds <code>OldSongs</code> folder.</p>
+</li>
+<li>
+<p>Changes its name to <code>NewHits</code>.</p>
+</li>
+<li>
+<p>Everything inside stays the same.</p>
+</li>
+</ul>
+<p><strong>Another example (relative path):</strong><br />
+If you're in <code>C:/Projects</code> and want to rename a sibling folder:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>import os 
+<a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a>os.rename(&quot;../Music/OldSongs&quot;, &quot;../Music/NewHits&quot;)
+</code></pre></div>
+<p>This works anywhere—the full path tells Python exactly where to look.</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../../..", "features": ["navigation.sections", "navigation.expand", "search.highlight", "content.code.copy", "navigation.top"], "search": "../../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

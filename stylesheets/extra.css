@@ -1,0 +1,125 @@
+/* =========================================================
+   1. Highlight only main folders in the Navigation
+   ========================================================= */
+
+/* Targets the direct folder title, does not affect inner lessons */
+.md-nav__item--nested > label.md-nav__link,
+.md-nav__item--nested > a.md-nav__link {
+    background-color: #3f51b5 !important; /* Indigo */
+    color: #ffffff !important;
+    padding: 8px 12px !important;
+    border-radius: 4px !important;
+    margin-bottom: 5px !important;
+    font-weight: bold !important;
+}
+
+/* Hover effect on folders */
+.md-nav__item--nested > label.md-nav__link:hover,
+.md-nav__item--nested > a.md-nav__link:hover {
+    background-color: #3f51b5 !important;
+    color: #ffffff !important;
+    cursor: pointer;
+}
+
+/* Inner lessons/files without background */
+.md-nav__item--nested .md-nav__list .md-nav__link {
+    background-color: transparent !important;
+    color: var(--md-default-fg-color) !important;
+    padding: 5px 12px !important;
+    font-weight: normal !important;
+}
+
+/* Menu arrow color to white */
+.md-nav__item--nested > label.md-nav__link::after {
+    background-color: #ffffff !important;
+}
+
+
+/* =========================================================
+   2. Content width
+   ========================================================= */
+
+.md-grid {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 66rem;
+}
+
+
+/* =========================================================
+   3. Site background (~#212121)
+   ========================================================= */
+
+:root {
+    --md-default-bg-color: #212121;
+}
+
+
+/* =========================================================
+   4. Headings styling h2 → h6
+   ========================================================= */
+
+.md-typeset h2 {
+    color: #2196f3;        /* Blue */
+    font-weight: 600;
+    font-size: 1.3rem;
+}
+
+.md-typeset h3 {
+    color: #ef5350;        /* Light Red */
+    font-weight: 500;
+    font-size: 1.2rem;
+}
+
+.md-typeset h4 {
+    color: #4caf50;        /* Green */
+    font-weight: 450;
+    font-size: 1.1rem;
+}
+
+.md-typeset h5 {
+    color: #ffeb3b;        /* Yellow */
+    font-weight: 400;
+    font-size: 1rem;
+    text-transform: none !important;  
+}
+
+.md-typeset h6 {
+    color: #f48fb1;        /* Pink */
+    font-weight: 390;
+    font-size: 0.75rem;
+}
+
+
+/* =========================================================
+   5. Expand Sidebar the correct way (Material-safe)
+   ========================================================= */
+
+/* Increase sidebar width using theme variables */
+:root {
+    --md-sidebar-width: 22rem;           /* Default ~15rem */
+    --md-sidebar-width--secondary: 22rem;
+}
+
+/* =========================================================
+   6. Prevent page names from breaking layout
+   ========================================================= */
+
+/* Allow single line only */
+.md-nav__link {
+    white-space: nowrap;
+}
+
+/* If name is longer than width → show ... */
+.md-nav__link span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+}
+
+
+@media screen and (min-width: 76.25em) {
+    [dir=ltr] .md-nav--primary .md-nav__list {
+        padding-left: 0.2rem;
+    }
+}
