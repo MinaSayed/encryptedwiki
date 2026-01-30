@@ -1,8 +1,8 @@
 /* =========================================================
-   1. تلوين المجلدات الرئيسية فقط في الـ Navigation
+   1. Highlight only main folders in the Navigation
    ========================================================= */
 
-/* يستهدف العنوان المباشر للمجلد ولا يؤثر على الدروس بالداخل */
+/* Targets the direct folder title, does not affect inner lessons */
 .md-nav__item--nested > label.md-nav__link,
 .md-nav__item--nested > a.md-nav__link {
     background-color: #3f51b5 !important; /* Indigo */
@@ -13,7 +13,7 @@
     font-weight: bold !important;
 }
 
-/* Hover على المجلدات */
+/* Hover effect on folders */
 .md-nav__item--nested > label.md-nav__link:hover,
 .md-nav__item--nested > a.md-nav__link:hover {
     background-color: #3f51b5 !important;
@@ -21,7 +21,7 @@
     cursor: pointer;
 }
 
-/* الدروس والملفات الداخلية بدون خلفية */
+/* Inner lessons/files without background */
 .md-nav__item--nested .md-nav__list .md-nav__link {
     background-color: transparent !important;
     color: var(--md-default-fg-color) !important;
@@ -29,14 +29,14 @@
     font-weight: normal !important;
 }
 
-/* سهم القائمة باللون الأبيض */
+/* Menu arrow color to white */
 .md-nav__item--nested > label.md-nav__link::after {
     background-color: #ffffff !important;
 }
 
 
 /* =========================================================
-   2. عرض المحتوى (Content width)
+   2. Content width
    ========================================================= */
 
 .md-grid {
@@ -47,7 +47,7 @@
 
 
 /* =========================================================
-   3. خلفية الموقع (#212121 تقريبًا)
+   3. Site background (~#212121)
    ========================================================= */
 
 :root {
@@ -56,62 +56,60 @@
 
 
 /* =========================================================
-   4. تنسيق العناوين h2 → h6
+   4. Headings styling h2 → h6
    ========================================================= */
 
 .md-typeset h2 {
-    color: #2196f3;        /* أزرق */
+    color: #2196f3;        /* Blue */
     font-weight: 600;
     font-size: 1.3rem;
 }
 
 .md-typeset h3 {
-    color: #ef5350;        /* أحمر فاتح */
+    color: #ef5350;        /* Light Red */
     font-weight: 500;
     font-size: 1.2rem;
 }
 
 .md-typeset h4 {
-    color: #4caf50;        /* أخضر */
+    color: #4caf50;        /* Green */
     font-weight: 450;
-    font-size: 1.2rem;
-}
-
-.md-typeset h5 {
-    color: #ffeb3b;        /* أصفر */
-    font-weight: 400;
     font-size: 1.1rem;
 }
 
-.md-typeset h6 {
-    color: #f48fb1;        /* بمبا */
-    font-weight: 390;
+.md-typeset h5 {
+    color: #ffeb3b;        /* Yellow */
+    font-weight: 400;
     font-size: 1rem;
 }
 
-
+.md-typeset h6 {
+    color: #f48fb1;        /* Pink */
+    font-weight: 390;
+    font-size: 0.75rem;
+}
 
 
 /* =========================================================
-   5. توسيع الـ Sidebar بالطريقة الصحيحة (Material-safe)
+   5. Expand Sidebar the correct way (Material-safe)
    ========================================================= */
 
-/* توسيع عرض السايدبار باستخدام متغير الثيم */
+/* Increase sidebar width using theme variables */
 :root {
-    --md-sidebar-width: 22rem;           /* الافتراضي ~15rem */
+    --md-sidebar-width: 22rem;           /* Default ~15rem */
     --md-sidebar-width--secondary: 22rem;
 }
 
 /* =========================================================
-   6. منع كسر أسماء الصفحات بدون تدمير التخطيط
+   6. Prevent page names from breaking layout
    ========================================================= */
 
-/* السماح بسطر واحد فقط */
+/* Allow single line only */
 .md-nav__link {
     white-space: nowrap;
 }
 
-/* لو الاسم أطول من العرض → ... */
+/* If name is longer than width → show ... */
 .md-nav__link span {
     overflow: hidden;
     text-overflow: ellipsis;
@@ -124,8 +122,3 @@
         padding-left: 0.2rem;
     }
 }
-
-
-
-
-
