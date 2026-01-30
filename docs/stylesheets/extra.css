@@ -81,6 +81,7 @@
     color: #ffeb3b;        /* Yellow */
     font-weight: 400;
     font-size: 1rem;
+    text-transform: none;  
 }
 
 .md-typeset h6 {
